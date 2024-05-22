@@ -1,11 +1,55 @@
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--std-margin-padding: 2em;
+}
+
+html {
+	box-sizing: border-box;
 }
 
 body {
-  color: white;
-  z-index: 2;
+	position: relative;
+	z-index: 1;
+	background: black;
+}
+
+canvas {
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+h1,
+p,
+ul {
+	position: absolute;
+	color: white;
+	top: 0;
+	left: 0;
+}
+
+ul {
+	position: absolute;
+	top: 50%;
+	list-style: none;
+
+	li {
+		margin-top: 1em;
+	}
+
+	button {
+		background: none;
+		color: white;
+		border: none;
+		font-size: 2em;
+
+		&:hover, &:focus {
+			background: #fff5;
+			outline: solid 1px #fff8;
+		}
+	}
 }

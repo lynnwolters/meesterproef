@@ -1,0 +1,11 @@
+body{
+    background-color: var(--background-color);
+}
+
+.theatre-container{
+    position: relative;
+}
+
+.truss-container{
+    background-color: white;
+}

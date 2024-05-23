@@ -1,6 +1,7 @@
 @import 'font.css';
 @import 'layout.css';
 @import 'positioning.css';
+@import 'decor-pieces.css';
 
 * {
     margin: 0;
@@ -10,7 +11,7 @@
 
 :root{
     --primary-color: rgb(64, 64, 64);
-    --background-color: black;
+    --background-color: rgb(19, 19, 19);
 
     --z-index-base: 700;
     --z-index-leg-1: 600;

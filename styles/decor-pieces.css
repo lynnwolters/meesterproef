@@ -1,0 +1,24 @@
+.from-truss{
+    position: absolute;
+}
+
+.arrow-lamp{
+    left: 35%;
+    width: 35%;
+    top: 8vh;
+}
+
+.s,
+.h,
+.o,
+.p{
+}
+
+.shop-letter-container{
+    display: flex;
+    width: 25vw;
+    left: 15%;
+    top: 9vh;
+    gap: 2rem;
+    aspect-ratio: 2/1;
+}

@@ -1,6 +1,7 @@
 import './style.css';
 
 import * as THREE from 'three';
+import gsap from 'gsap';
 
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
@@ -22,29 +23,94 @@ window.addEventListener('resize', function () {
 	camera.updateProjectionMatrix();
 });
 
+// fog
+scene.fog = new THREE.Fog(0x000000, 1, 40);
+
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(5, 5, -5);
 camera.rotation.set(0, 2, 0);
 
-// change view
-const btn = document.getElementById('theaterView');
-btn.addEventListener('click', (event) => {
-	camera.position.set(0, 0, 0);
-	console.log('Button was clicked!', event);
+// change views
+const theaterView = document.getElementById('theaterView');
+const kioskView = document.getElementById('kioskView');
+const peopleView = document.getElementById('peopleView');
+
+// theater view
+theaterView.addEventListener('click', function () {
+	gsap.to(camera.position, {
+    x: 8,
+    y: 5,
+		z: 0,
+		duration: 1.5,
+	});
+
+	gsap.to(camera.rotation, {
+    x: 0,
+    y: 1.5,
+		z: 0,
+		duration: 1.5,
+	});
+});
+
+// kioskview
+kioskView.addEventListener('click', function () {
+	gsap.to(camera.position, {
+    x: -5,
+		y: 5,
+    z: 0,
+		duration: 1.5,
+	});
+
+	gsap.to(camera.rotation, {
+    x: 0,
+		y: 0,
+    z: 0,
+		duration: 1.5,
+	});
+});
+
+// peopleview
+peopleView.addEventListener('click', function () {
+	gsap.to(camera.position, {
+    x: -5,
+		y: 5,
+    z: 0,
+		duration: 1.5,
+	});
+
+	gsap.to(camera.rotation, {
+    x: 0,
+		y: 3.1,
+    z: 0,
+		duration: 1.5,
+	});
 });
 
 renderer.render(scene, camera);
 
-const pointLight = new THREE.PointLight(0xffffff, 60);
+
+// lights
+const pointLight = new THREE.PointLight(0xffffff, 40);
 pointLight.position.set(-5, 6, 0);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 10);
-scene.add(pointLight);
+const spotLight = new THREE.SpotLight(0xffffff, 50);
+spotLight.position.set(-8, 10, 0);
+spotLight.angle = Math.PI / 10;
+
+const ambientLight = new THREE.AmbientLight(0xffffff, .5);
+scene.add(spotLight, ambientLight);
+
+// spotlight target
+const spotLightTarget = new THREE.Object3D();
+spotLightTarget.position.set(-8, 0, 0);
+scene.add(spotLightTarget);
+spotLight.target = spotLightTarget;
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
+const spotLightHelper = new THREE.SpotLightHelper(spotLight);
 const gridHelper = new THREE.GridHelper();
-scene.add(lightHelper, gridHelper);
+scene.add(spotLightHelper);
 
 // monki
 const loader = new GLTFLoader();
@@ -70,8 +136,8 @@ controls.enabled = false;
 // chatgpt particles
 // Particle setup
 const particleCount = 200;
-const geometry = new THREE.SphereGeometry(0.01, 16, 16);
-const material = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5  });
+const geometry = new THREE.SphereGeometry(0.005, 16, 16);
+const material = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
 const instancedMesh = new THREE.InstancedMesh(geometry, material, particleCount);
 scene.add(instancedMesh);
 
@@ -82,16 +148,8 @@ const boxSize = 20;
 const particleSpeed = 0.005;
 for (let i = 0; i < particleCount; i++) {
 	const particle = {
-		position: new THREE.Vector3(
-			(Math.random() - 0.5) * boxSize, 
-			(Math.random() - 0.5) * boxSize, 
-			(Math.random() - 0.5) * boxSize
-		),
-		velocity: new THREE.Vector3(
-			(Math.random() - 0.5) * particleSpeed, 
-			(Math.random() - 0.5) * particleSpeed, 
-			(Math.random() - 0.5) * particleSpeed
-		),
+		position: new THREE.Vector3((Math.random() - 0.5) * boxSize, (Math.random() - 0.5) * boxSize, (Math.random() - 0.5) * boxSize),
+		velocity: new THREE.Vector3((Math.random() - 0.5) * particleSpeed, (Math.random() - 0.5) * particleSpeed, (Math.random() - 0.5) * particleSpeed),
 	};
 	particles.push(particle);
 }

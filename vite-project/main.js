@@ -36,81 +36,96 @@ const theaterView = document.getElementById('theaterView');
 const kioskView = document.getElementById('kioskView');
 const peopleView = document.getElementById('peopleView');
 
+const gridSection = document.getElementById('gridSection');
+
+function showGridSection() {
+	gridSection.classList.remove('hidden');
+}
+
+function hideGridSection() {
+	gridSection.classList.add('hidden');
+}
+
 // theater view
 theaterView.addEventListener('click', function () {
 	gsap.to(camera.position, {
-    x: 8,
-    y: 5,
+		x: 8,
+		y: 5,
 		z: 0,
 		duration: 1.5,
 	});
 
 	gsap.to(camera.rotation, {
-    x: 0,
-    y: 1.5,
+		x: 0,
+		y: 1.5,
 		z: 0,
 		duration: 1.5,
 	});
+
+	showGridSection();
 });
 
 // kioskview
 kioskView.addEventListener('click', function () {
 	gsap.to(camera.position, {
-    x: -5,
+		x: -5,
 		y: 5,
-    z: 0,
+		z: 0,
 		duration: 1.5,
 	});
 
 	gsap.to(camera.rotation, {
-    x: 0,
+		x: 0,
 		y: 0,
-    z: 0,
+		z: 0,
 		duration: 1.5,
 	});
+
+	hideGridSection();
 });
 
 // peopleview
 peopleView.addEventListener('click', function () {
 	gsap.to(camera.position, {
-    x: -5,
+		x: -5,
 		y: 5,
-    z: 0,
+		z: 0,
 		duration: 1.5,
 	});
 
 	gsap.to(camera.rotation, {
-    x: 0,
+		x: 0,
 		y: 3.1,
-    z: 0,
+		z: 0,
 		duration: 1.5,
 	});
+
+	hideGridSection();
 });
 
 renderer.render(scene, camera);
 
-
 // lights
 const pointLight = new THREE.PointLight(0xffffff, 40);
-pointLight.position.set(-5, 6, 0);
+pointLight.position.set(-5, 5, 0);
 
 const spotLight = new THREE.SpotLight(0xffffff, 50);
-spotLight.position.set(-8, 10, 0);
+spotLight.position.set(-5, 10, 0);
 spotLight.angle = Math.PI / 10;
 
-const ambientLight = new THREE.AmbientLight(0xffffff, .5);
-scene.add(spotLight, ambientLight);
+const ambientLight = new THREE.AmbientLight(0xffffff, 3);
+scene.add(spotLight, pointLight);
 
 // spotlight target
 const spotLightTarget = new THREE.Object3D();
-spotLightTarget.position.set(-8, 0, 0);
+spotLightTarget.position.set(-5, 0, 0);
 scene.add(spotLightTarget);
 spotLight.target = spotLightTarget;
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
 const spotLightHelper = new THREE.SpotLightHelper(spotLight);
 const gridHelper = new THREE.GridHelper();
-scene.add(spotLightHelper);
+// scene.add(spotLightHelper, lightHelper);
 
 // monki
 const loader = new GLTFLoader();

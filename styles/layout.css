@@ -128,17 +128,17 @@ body{
 .curtain-left{
     left: 0;
     transform: translateX(-1%);
-    transform: translateX(-75%);
+    /* transform: translateX(-75%); */
 
-    /* animation: curtain-open-left 2s ease-out var(--curtain-delay) forwards; */
+    animation: curtain-open-left 2s ease-out var(--curtain-delay) forwards;
 }
 
 .curtain-right{
     right: 0;
     transform: translateX(1%);
-    transform: translateX(75%);
+    /* transform: translateX(75%); */
 
-    /* animation: curtain-open-right 2s ease-out var(--curtain-delay) forwards; */
+    animation: curtain-open-right 2s ease-out var(--curtain-delay) forwards;
 }
 
 @keyframes curtain-open-right{

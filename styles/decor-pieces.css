@@ -6,19 +6,124 @@
     left: 35%;
     width: 35%;
     top: 8vh;
+    transform: translateY(-50vh);
+    animation: letters-naar-beneden 1s 3s forwards ease-out;
 }
 
 .s,
 .h,
 .o,
 .p{
+    animation: letters-naar-beneden var(--duration) 2s forwards ease-out;
+    transform: translateY(-50vh);
 }
 
+.s{
+    --duration: calc(var(--initial-duration) * 2);
+}
+
+.h{
+    --duration: calc(var(--initial-duration) * 1);
+    transform: translateX(-.5rem);
+}
+
+.o{
+    --duration: calc(var(--initial-duration) * 1.5);
+}
+
+.p{
+    --duration: calc(var(--initial-duration) * 1.2);
+}
+
+
 .shop-letter-container{
+    --initial-duration: .5s;
+    --duration: var(--initial-duration);
     display: flex;
     width: 25vw;
     left: 15%;
     top: 9vh;
     gap: 2rem;
     aspect-ratio: 2/1;
+}
+
+@keyframes letters-naar-beneden{
+    0%{
+        transform: translateY(-50vh);
+    }
+
+    90%{
+        transform: translateY(1vh);
+    }
+
+    100%{
+        transform: translateY(-1vh);
+    }
+}
+
+.snail-container{
+    position: relative;
+    width: 20vw;
+    top: 60%;
+    left: 30%;
+    transform: translateX(50vw);
+    animation: snail-into-frame 2s 2s forwards ease-out;
+
+    img{
+        position: absolute;
+        width: 100%;
+    }
+
+    .head-container{
+        animation: head-move 4s infinite linear;
+        transform-origin: center bottom;
+    }
+
+    .right-ear{
+        animation: ear-animation 1s infinite linear alternate;
+        transform-origin: 8rem 4rem;
+    }
+
+    .left-ear{
+        animation: ear-animation 2s infinite linear alternate-reverse;
+        transform-origin: 5rem 2rem;
+    }
+}
+
+@keyframes snail-into-frame{
+    from{
+        transform: translateX(50vw);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes head-move{
+    30%{
+        transform: translateY(0) rotate(0);
+    }
+
+    40%{
+        transform: translateY(-1rem) rotate(5deg);
+    }
+
+    50%{
+        transform: translateY(0) rotate(0);
+    }
+
+    60%{
+        transform: translateY(-1rem) rotate(-5deg);
+    }
+
+    70%{
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes ear-animation{
+    to{
+        transform: rotate(20deg);
+    }
 }

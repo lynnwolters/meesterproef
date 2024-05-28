@@ -14,5 +14,4 @@
     <header>
         <h2>header</h2>
     </header>
-</body>
 <main>

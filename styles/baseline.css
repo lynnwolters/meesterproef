@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --vloer-kleur: #CE0909;
+    --muur-kleur-1: #2E150D;
+    --muur-kleur-2: #D79005;
+    --duration: 1.5s;
+    --cubic-bezier: cubic-bezier(.82,.07,1,.77);
+}
+
+html{
+    height: 100dvh;
+}
+
+body{
+    margin:0;
+	min-height:100%;
+
+    /* &::after {
+        animation: grain 8s steps(10) infinite;
+        background-image: url("https://i.imgur.com/q8OcI5p.png");
+        content: "";
+        height: 300%;
+        left: -50%;
+        opacity: 0.3;
+        position: fixed;
+        top: -100%;
+        width: 300%;
+    } */
+}
+
+@keyframes grain {
+    0%, 100% { transform:translate(0, 0) }
+    10% { transform:translate(-5%, -10%) }
+    20% { transform:translate(-15%, 5%) }
+    30% { transform:translate(7%, -25%) }
+    40% { transform:translate(-5%, 25%) }
+    50% { transform:translate(-15%, 10%) }
+    60% { transform:translate(15%, 0%) }
+    70% { transform:translate(0%, 15%) }
+    80% { transform:translate(3%, 35%) }
+    90% { transform:translate(-10%, 10%) }
+  }

@@ -3,6 +3,10 @@ Theme Name: De Man Met De Hamer
 Version: 1.1
 */
 
+@import 'styles/baseline.css';
+@import 'styles/loader.css';
+
+
 img {
     width: 100%;
 }

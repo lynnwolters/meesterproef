@@ -1,0 +1,187 @@
+kamer {
+	--deur-hoogte:10em;
+	--deur-breedte:6em;
+	--deur-marge:12em;
+	
+	--licht-breedte:120em;
+	
+	--kamer-hoek:15deg;
+	--kamer-middelpunt:45%;
+	
+	position:fixed;
+	inset:0;
+	background-color: var(--vloer-kleur);
+	
+	display:flex;
+	
+	overflow:hidden;
+	animation: kamer var(--duration) 1s forwards var(--cubic-bezier);
+}
+
+@keyframes kamer {
+	98.5% {
+		filter:brightness(.9);
+	}
+	99%, 100% {
+		filter:brightness(.6);
+	}
+}
+	
+muur {
+	height:80%;
+}
+
+muur:nth-of-type(1) {
+	flex-basis:var(--kamer-middelpunt);
+	transform:
+		translateY(-20dvh)
+		skewY( calc(var(--kamer-hoek) * -1) );
+	transform-origin:right bottom;
+	background-color: var(--muur-kleur-1);
+}
+
+muur:nth-of-type(2) {
+	flex-grow:1;
+	transform:
+		translateY(-20dvh)
+		skewY( calc(var(--kamer-hoek) * 1) );
+	transform-origin:left bottom;
+	background-color: var(--muur-kleur-2);
+}
+
+deur {
+	position:absolute;
+	bottom:0;
+	left:var(--deur-marge);
+	
+	height:var(--deur-hoogte);
+	width:var(--deur-breedte);
+	
+	transform-origin:right bottom;
+	transform:
+		skewY( calc(var(--kamer-hoek) * -1) );
+	
+	display:grid;
+	place-content:center end;
+}
+
+/* gat en deur */
+deur::before,
+deur::after {
+	content:"";
+	position:absolute;
+	inset:0;
+	
+	transform-origin:right bottom;
+}
+
+/* gat */
+deur::before {
+	background-color:white;
+	
+	transform: skewY( calc(var(--kamer-hoek) * 1) );
+	
+	z-index:1;
+}
+
+/* deur */
+deur::after {
+	background-color:var(--muur-kleur-1);
+    padding: 2px;
+    margin-top: -1px;
+    margin-left: -1px;
+	
+	transform:
+		skewY( calc(var(--kamer-hoek) * -1) );
+	
+	z-index:2;
+	
+	animation: deur var(--duration) 1s forwards var(--cubic-bezier);
+}
+
+@keyframes deur {
+	100% {
+		transform:
+			skewY( calc(var(--kamer-hoek) * 1) );
+		background-color: var(--muur-kleur-2);
+	}
+}
+
+/* licht */
+licht {
+	display:block;
+	height:calc(var(--deur-hoogte) + 2 * var(--licht-breedte) * tan(var(--kamer-hoek)));
+	width:var(--licht-breedte);
+	
+	background-image:
+		linear-gradient(
+			-90deg, 
+			#fff6,
+			transparent
+		);
+	
+	clip-path:
+		polygon(
+			0 0, 
+			100% calc(50% - var(--deur-hoogte) * .5),  
+			100% calc(50% + var(--deur-hoogte) * .5), 
+			calc(100% - var(--deur-breedte)) calc( 50% + var(--deur-hoogte) * .5 + tan(var(--kamer-hoek)) * var(--deur-breedte) ),
+			0 100%
+		);
+		animation:licht var(--duration) 1s forwards var(--cubic-bezier);
+}
+
+@keyframes licht {
+	98.5% {
+		opacity:1;
+	}
+	99%, 100% {
+		opacity:0;
+		clip-path:
+			polygon(
+				0 0, 
+				100% calc(50% - var(--deur-hoogte) * .5),  
+				100% calc(50% + var(--deur-hoogte) * .5), 
+				calc(100% - var(--deur-breedte)) calc( 50% + var(--deur-hoogte) * .5 - tan(var(--kamer-hoek)) * var(--deur-breedte) ),
+				0 calc(100% - tan(var(--kamer-hoek)) * var(--deur-breedte) )
+			);
+	}
+}
+
+uithangbord{
+	--size: 4rem;
+	position: absolute;
+	right: 4rem;
+	bottom: 20rem;
+	width: 14rem;
+	height: var(--size);
+	transform:
+		skewY(-15deg);
+	
+	&::before,
+	&::after{
+		position: absolute;
+	}
+	
+	&::before{
+		content: '';
+		height: 100%;
+		aspect-ratio: 1;
+		background-color: white;
+		transform: skewY(15deg);
+		transform-origin: bottom right;
+	}
+	
+	&::after{
+		left: var(--size);
+		content: 'DE MAN MET DE HAMER';
+		font-size: 1.2em;
+		font-family: arial;
+		padding: .5rem;
+		max-height: 100%;
+		aspect-ratio: 3/1;
+		background-color: var(--vloer-kleur);
+		transform: skewY(-15deg);
+		transform-origin: bottom left;
+	}
+}

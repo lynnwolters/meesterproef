@@ -5,6 +5,10 @@
 function bofesto_setup(){
     wp_enqueue_style('google-font', '//fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&display=swap');
     wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
+
+	wp_enqueue_style( 'carrousel', get_template_directory_uri() . '/styles/carrousel.css');
+	wp_enqueue_style( 'menu', get_template_directory_uri() . '/styles/menu.css');
+
     wp_enqueue_script("main", get_theme_file_uri('/js/script.js'), NULL, microtime(), true);
 }
 

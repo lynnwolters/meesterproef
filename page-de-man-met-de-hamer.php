@@ -38,6 +38,39 @@
         </div>
         <div class="scene__room__plane__top"></div>
         <div class="scene__room__plane__bottom"></div>
+
+    </section>
+    
+    <section class="scene__carrousel">
+    <?php
+                $args = array(
+                    'post_type' => 'portfolio',
+                    'posts_per_page' => 30,
+                );
+     
+                $blogposts = new WP_Query($args);
+     
+                while ($blogposts->have_posts()) {
+                    $blogposts->the_post();
+     
+                ?>
+    
+            <div class="scene__slide">
+                <div class="scene__slide__plane__front">
+                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="750x500x1">
+                    <h5><?php the_title(); ?></h5>
+                </div>
+                <div class="scene__slide__plane__back"></div>
+                <div class="scene__slide__plane__left"></div>
+                <div class="scene__slide__plane__right"></div>
+                <div class="scene__slide__plane__top"></div>
+                <div class="scene__slide__plane__bottom"></div>
+            </div>
+     
+                <?php }
+                wp_reset_query();
+                ?>
+     
     </section>
 
 <?php get_footer(); ?>

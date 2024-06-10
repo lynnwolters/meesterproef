@@ -16,6 +16,10 @@ img {
     --menu-height: 5em;
     --menu-depth: 5em;
 
+    --slide-width: 20em;
+    --slide-height: 25em;
+    --slide-depth: 1em;
+
     --room-width: 100dvw;
     --room-height: 100dvh;
     --room-depth: 100dvw;
@@ -42,6 +46,7 @@ img {
 
 body {
     background-color: #2E150D;
+    overflow: hidden;
 }
 
 a, button {

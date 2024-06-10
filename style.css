@@ -7,8 +7,344 @@ img {
     width: 100%;
 }
 
-.max-width {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+/* ***** */
+/* ROOT */
+/* *** */
+
+:root {
+    --menu-width: 14em;
+    --menu-height: 5em;
+    --menu-depth: 5em;
+
+    --room-width: 100dvw;
+    --room-height: 100dvh;
+    --room-depth: 100dvw;
+}
+
+/* ********** */
+/* RESET CSS */
+/* ******** */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 110%;
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    background-color: #2E150D;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+/* **************** */
+/* GENERAL CLASSES */
+/* ************** */
+
+.active-link {
+    text-decoration: underline;
+}
+
+.noise {
+    width: 100dvw;
+    height: 100dvh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    background-image: url("http://man-met-de-hamer.local/wp-content/uploads/2024/06/noise.png");
+    background-size: cover;
+    mix-blend-mode: soft-light;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+}
+
+/* ********** */
+/* CONTAINER */
+/* ******** */
+
+.container {
+    height: 100dvh;
+
+    overflow: hidden;
+    transform-style: preserve-3d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ***** */
+/* ROOM */
+/* *** */
+
+.scene__room {
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(-45deg);
+
+    display: grid;
+    place-items: center;
+
+    border: none;
+
+    background-color: transparent;
+}
+
+.scene__room div {    
+    grid-area: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+
+    color: white;
+}
+
+/* Front */
+.scene__room__plane__front {
+    width: var(--room-width);
+    height: var(--room-height);
+
+    transform: translateZ(calc(var(--room-depth) / -2));
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #BC2A2A;
+    opacity: 0;
+}
+
+/* Back */
+.scene__room__plane__back {
+    width: var(--room-width);
+    height: var(--room-height);
+
+    transform: rotateY(180deg) translateZ(calc(var(--room-depth) / -2));
+
+    background-color: #BC2A2A;
+}
+
+/* Left */
+.scene__room__plane__left {
+    width: var(--room-depth);
+    height: var(--room-height);
+
+    transform: rotateY(90deg) translateZ(calc(var(--room-width) / -2));
+
+    padding: .8em;
+
+    background-color: #863939;
+    opacity: 0;
+}
+
+/* Right */
+.scene__room__plane__right {
+    width: var(--room-depth);
+    height: var(--room-height);
+
+    transform: rotateY(90deg) translateZ(calc(var(--room-width) / 2));
+    transform-style: preserve-3d;
+
+    background-color: #863939;
+}
+
+/* Top */
+.scene__room__plane__top {
+    width: var(--room-width);
+    height: var(--room-depth);
+
+    transform: rotateX(-90deg) translateZ(calc(var(--room-height) / -2));
+
+    background-color: #DC6A01;
+    opacity: 0;
+}
+
+/* Bottom */
+.scene__room__plane__bottom {
+    width: var(--room-width);
+    height: var(--room-depth);
+
+    transform: rotateX(90deg) translateZ(calc(var(--room-height) / -2));
+
+    background-color: #DC6A01;
+}
+
+/* ***** */
+/* MENU */
+/* *** */
+
+.scene {
+    transform-style: preserve-3d;
+
+    display: flex;
+    justify-content: end;
+    align-items: start;
+
+    padding: 6em 4em;
+}
+
+.scene__menu {
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(270deg) translateX(10em);
+
+    display: grid;
+    place-items: center;
+
+    border: none;
+
+    background-color: transparent;
+}
+
+.scene__menu div {    
+    grid-area: 1/1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Front */
+.scene__menu__plane__front {
+    width: var(--menu-width);
+    height: var(--menu-height);
+
+    position: relative;
+    transform: translateZ(calc(var(--menu-depth) / -2));
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #BC2A2A;
+}
+
+.scene__menu__plane__front p {
+    font-size: 1.6em;
+}
+
+.scene__menu__plane__front__submenu {
+    width: 100%;
+    height: 0;
+    
+    position: absolute;
+    left: 0;
+    top: 5em;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #BC2A2A;
+    
+    transition: height .5s ease;
+}
+
+.scene__menu__plane__front__submenu li {
+    height: 6em;
+    opacity: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style: none;
+
+    transition: opacity .3s ease;
+}
+
+.scene__menu__plane__front__submenu li:hover {
+    background-color: #A62828;
+}
+
+.scene__menu__plane__front__submenu li a {
+    font-size: 1.6em;
+}
+
+.scene__menu__plane__front__submenu.toggle-menu {
+    height: 20em;
+}
+
+.scene__menu__plane__front__submenu.toggle-menu li {
+    opacity: 1;
+}
+
+/* Back */
+.scene__menu__plane__back {
+    width: var(--menu-width);
+    height: var(--menu-height);
+
+    transform: rotateY(180deg) translateZ(calc(var(--menu-depth) / -2));
+}
+
+/* Left */
+.scene__menu__plane__left {
+    width: var(--menu-depth);
+    height: var(--menu-height);
+
+    position: relative;
+    transform: rotateY(90deg) translateZ(calc(var(--menu-width) / -2));
+
+    padding: .8em;
+
+    background-color: #FFFFFF;
+}
+
+.scene__menu__plane__left img {
+    width: 100%;
+}
+
+.scene__menu__plane__left__extension {
+    width: 100%;
+    height: 0;
+    
+    position: absolute;
+    left: 0;
+    top: 5em;
+
+    background-color: white;
+    
+    transition: height .5s ease;
+}
+
+.scene__menu__plane__left__extension.toggle-menu {
+    height: 20em;
+}
+
+/* Right */
+.scene__menu__plane__right {
+    width: var(--menu-depth);
+    height: var(--menu-height);
+
+    transform: rotateY(-90deg) translateZ(calc(var(--menu-width) / -2));
+}
+
+/* Top */
+.scene__menu__plane__top {
+    width: var(--menu-width);
+    height: var(--menu-depth);
+
+    transform: rotateX(-90deg) translateZ(calc(var(--menu-height) / -2));
+
+    background-color: #DC6A01;
+}
+
+/* Bottom */
+.scene__menu__plane__bottom {
+    width: var(--menu-width);
+    height: var(--menu-depth);
+
+    transform: rotateX(90deg) translateZ(calc(var(--menu-height) / -2));
 }

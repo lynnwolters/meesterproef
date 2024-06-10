@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="author" content="Juriën Waijenberg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
     <?php wp_head(); ?>
 
@@ -12,7 +13,9 @@
 
 <body>
     <header>
-        <h2>header</h2>
+        
     </header>
-</body>
-<main>
+
+<div class="noise"></div>
+
+<main class="container">

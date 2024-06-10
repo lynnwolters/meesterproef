@@ -28,20 +28,13 @@
 .scene__slide {
     transition: .2s;
     transform-style: preserve-3d;
-    transform: rotateX(90deg);
+    transform: rotateX(-90deg);
     margin: -10em;
 
     display: grid;
     place-items: center;
 
     /* background-color: transparent; */
-
-    &:hover {
-        transform: 
-            rotateX(90deg)
-            translateY(5em)
-            ;
-    }
 }
 
 .scene__slide div {    
@@ -58,12 +51,20 @@
     height: var(--slide-height);
 
     position: relative;
-    transform: translateZ(calc(var(--slide-depth) / -2));
+    transform: translateZ(calc(var(--slide-depth) / 2));
 
     display: flex;
     flex-direction: column;
 
+    overflow: hidden;
+
     background-color: #d44040;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 /* Back */

@@ -14,7 +14,7 @@ function bofesto_setup(){
 
 add_action('wp_enqueue_scripts', 'bofesto_setup');
 
-add_filter( 'show_admin_bar', '__return_true');
+add_filter( 'show_admin_bar', '__return_false');
 
 // Adding theme Support
 

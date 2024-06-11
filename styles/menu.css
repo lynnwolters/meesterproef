@@ -14,7 +14,11 @@
 
 .scene__menu {
     transform-style: preserve-3d;
-    transform: rotateX(0deg) rotateY(270deg) translateX(10em);
+    transform: 
+        rotateX(0deg) 
+        rotateY(270deg) 
+        translateX(10em)
+        translateY(-15em);
 
     display: grid;
     place-items: center;

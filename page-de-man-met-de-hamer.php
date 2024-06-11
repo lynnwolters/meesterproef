@@ -4,10 +4,9 @@
         <div class="scene__room__plane__front"></div>
         <div class="scene__room__plane__back"></div>
         <div class="scene__room__plane__left"></div>
-        <div class="scene__room__plane__right">
-
-        <!-- menu button -->
-            <button class="scene__menu">
+        <div class="scene__room__plane__right"></div>
+                <!-- menu button -->
+                <button class="scene__menu">
                 <div class="scene__menu__plane__front">
                     <p>Menu</p>
                     <ul class="scene__menu__plane__front__submenu">
@@ -34,7 +33,6 @@
                 <div class="scene__menu__plane__top"></div>
                 <div class="scene__menu__plane__bottom"></div>
             </button>
-        </div>
         <div class="scene__room__plane__top"></div>
         <div class="scene__room__plane__bottom"></div>
 

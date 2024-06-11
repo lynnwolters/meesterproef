@@ -13,8 +13,11 @@
 }
 
 .scene__menu {
+    position: absolute;
+
+    right: 0;
     transform-style: preserve-3d;
-    transform: rotateX(0deg) rotateY(270deg) translateX(10em);
+    transform: rotateX(0deg) translateX(5em);
 
     display: grid;
     place-items: center;

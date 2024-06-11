@@ -100,7 +100,7 @@
     width: var(--slide-width);
     height: var(--slide-height);
 
-    transform: rotateY(180deg) translateZ(calc(var(--slide-depth) / -2));
+    transform: rotateY(180deg) translateZ(calc(var(--slide-depth) / 2));
 
     /* box-shadow: 0 0 2em #0008; */
 }

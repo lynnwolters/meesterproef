@@ -8,8 +8,10 @@ function bofesto_setup(){
 
 	wp_enqueue_style( 'carrousel', get_template_directory_uri() . '/styles/carrousel.css');
 	wp_enqueue_style( 'menu', get_template_directory_uri() . '/styles/menu.css');
+	wp_enqueue_style( 'popup', get_template_directory_uri() . '/styles/pop-up.css');
 
     wp_enqueue_script("main", get_theme_file_uri('/js/script.js'), NULL, microtime(), true);
+	wp_enqueue_script("pop-up", get_theme_file_uri('/js/pop-up.js'), NULL, microtime(), true);
 }
 
 add_action('wp_enqueue_scripts', 'bofesto_setup');

@@ -34,10 +34,11 @@
                 <div class="scene__menu__plane__top"></div>
                 <div class="scene__menu__plane__bottom"></div>
             </button>
-            
         </div>
         <div class="scene__room__plane__top"></div>
         <div class="scene__room__plane__bottom"></div>
+
+        <div class="scene__door"></div>
     </section>
 
 <?php get_footer(); ?>

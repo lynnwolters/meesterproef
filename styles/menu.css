@@ -15,9 +15,10 @@
 .scene__menu {
     position: absolute;
 
-    right: 0;
+    top: 20vh;
+    right: 5em;
     transform-style: preserve-3d;
-    transform: rotateX(0deg) translateX(5em);
+    transform: rotateX(10deg) rotateY(-45deg);
 
     display: grid;
     place-items: center;

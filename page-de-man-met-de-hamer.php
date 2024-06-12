@@ -58,7 +58,7 @@
 
                 ?>
                     <li class="item">
-                        <button href="#"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="750x500x1"></button>
+                        <button><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="750x500x1"></button>
                     </li>
             
             <?php }

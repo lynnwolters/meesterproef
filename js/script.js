@@ -7,7 +7,7 @@ function toggleMenu() {
     const leftPlaneExtension = document.querySelector(".scene__menu__plane__left__extension");
     submenu.classList.toggle("toggle-menu");
     leftPlaneExtension.classList.toggle("toggle-menu");
-};
+}
 
 // scroll carrousel
 // const slides = document.querySelectorAll(".scene__slide");

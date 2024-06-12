@@ -1,0 +1,138 @@
+.scene__loader{
+	--deur-hoogte:10em;
+	--deur-breedte:6em;
+	--deur-marge:12em;
+	
+	--licht-breedte:120em;
+	
+	--kamer-hoek:25deg;
+	--kamer-middelpunt:45%;
+
+    position: absolute;
+
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(-45deg);
+
+    display: grid;
+    place-items: end;
+
+    border: none;
+
+    background-color: transparent;
+
+	pointer-events: none;
+}
+
+.scene__loader__plane{
+    grid-area: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+
+    color: white;
+
+    width: var(--room-depth);
+    height: var(--room-height);
+
+    transform: rotateY(90deg) translateZ(calc(var(--room-width) / 2));
+    transform-style: preserve-3d;
+}
+
+.scene__loader__plane__door{
+    position:absolute;
+	bottom:0;
+	left:var(--deur-marge);
+	
+	height:var(--deur-hoogte);
+	width:var(--deur-breedte);
+	
+	transform-origin:right bottom;
+    transform-style: preserve-3d;
+	
+	display:grid;
+	place-content:center end;
+
+    &::before,
+    &::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        
+        transform-origin:right bottom;
+    }
+
+    &::before{
+        background-color:var(--tertiary-color);
+	
+        /* transform: skewY( calc(var(--kamer-hoek) * 1) ); */
+        
+        z-index:1;
+    }
+
+    &::after{
+        background-color:black;
+
+		top: -1px;
+		left: -1px;
+
+		height:calc(var(--deur-hoogte) + 1px);
+		width:calc(var(--deur-breedte) + 2px);
+	
+        transform: skewY( calc(var(--kamer-hoek) * -1) );
+        
+        z-index:2;
+
+		animation:deur 2s linear forwards;
+    }
+}
+
+@keyframes deur {
+	100% {
+		transform:
+			skewY(0);
+		background-color: var(--secondary-color);
+	}
+}
+
+.scene__loader__plane__light{
+    display:block;
+    height:calc(var(--deur-hoogte) + 2 * var(--licht-breedte) * tan(var(--kamer-hoek)));
+    width:var(--licht-breedte);
+    
+    background-image:
+        linear-gradient(
+            -90deg, 
+            #fff6,
+            transparent
+    );
+    
+    clip-path:
+        polygon(
+            0 0, 
+            100% calc(50% - var(--deur-hoogte) * .5),  
+            100% calc(50% + var(--deur-hoogte) * .5), 
+            calc(100% - var(--deur-breedte)) calc( 50% + var(--deur-hoogte) * .5 + tan(var(--kamer-hoek)) * var(--deur-breedte)),
+            0 100%
+    );
+
+	animation:licht 2s linear forwards;
+}
+
+@keyframes licht {
+	98.5% {
+		opacity:1;
+	}
+	99%, 100% {
+		opacity:0;
+		clip-path:
+			polygon(
+				0 0, 
+				100% calc(50% - var(--deur-hoogte) * .5),  
+				100% calc(50% + var(--deur-hoogte) * .5), 
+				calc(100% - var(--deur-breedte)) calc( 50% + var(--deur-hoogte) * .5 - tan(var(--kamer-hoek)) * var(--deur-breedte) ),
+				0 calc(100% - tan(var(--kamer-hoek)) * var(--deur-breedte) )
+			);
+	}
+}

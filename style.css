@@ -16,13 +16,14 @@ img {
     --menu-height: 5em;
     --menu-depth: 5em;
 
-    /* --slide-width: 20em;
-    --slide-height: 25em;
-    --slide-depth: 1em; */
-
     --room-width: 200em;
     --room-height: 200em;
     --room-depth: 200em;
+
+    --primary-color: #BC2A2A;
+    --secondary-color: #863939;
+    --tertiary-color: #DC6A01;
+    --tertiary-color-dark: #2E150D;
 }
 
 /* ********** */
@@ -45,8 +46,12 @@ img {
 }
 
 body {
-    background-color: #2E150D;
-    /* overflow: hidden; */
+    height: 100dvh;
+    width: 100dvw;
+
+    background-color: var(--tertiary-color-dark);
+    
+    overflow: hidden;
 }
 
 a, button {
@@ -111,8 +116,7 @@ a, button {
 
     border: none;
 
-    background-color: transparent;
-}
+    background-color: transparent;}
 
 .scene__room div {    
     grid-area: 1/1;
@@ -135,7 +139,7 @@ a, button {
     display: flex;
     flex-direction: column;
 
-    background-color: #BC2A2A;
+    background-color: var(--primary-color);
     opacity: 0;
 }
 
@@ -146,7 +150,7 @@ a, button {
 
     transform: rotateY(180deg) translateZ(calc(var(--room-depth) / -2));
 
-    background-color: #BC2A2A;
+    background-color: var(--primary-color);
 }
 
 /* Left */
@@ -156,7 +160,7 @@ a, button {
 
     transform: rotateY(90deg) translateZ(calc(var(--room-width) / -2));
 
-    background-color: #863939;
+    background-color: var(--secondary-color);
     opacity: 0;
 }
 
@@ -170,7 +174,7 @@ a, button {
 
     position: relative;
 
-    background-color: #863939;
+    background-color: var(--secondary-color);
 }
 
 /* Top */
@@ -180,7 +184,7 @@ a, button {
 
     transform: rotateX(-90deg) translateZ(calc(var(--room-height) / -2));
 
-    background-color: #DC6A01;
+    background-color: var(--tertiary-color);
     opacity: 0;
 }
 
@@ -191,5 +195,5 @@ a, button {
 
     transform: rotateX(90deg) translateZ(calc(var(--room-height) / -2));
 
-    background-color: #DC6A01;
+    background-color: var(--tertiary-color);
 }

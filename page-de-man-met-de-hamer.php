@@ -38,7 +38,6 @@
         </div>
         <div class="scene__room__plane__top"></div>
         <div class="scene__room__plane__bottom"></div>
-
     </section>
     
     <section class="scene__carrousel">

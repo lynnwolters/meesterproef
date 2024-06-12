@@ -86,7 +86,7 @@
 
                     // Get the multiple image fields
                     $images = [
-                        get_field('image_1'),
+                        get_field('image'),
                         get_field('Image_2'),
                         get_field('image_3'),
                         get_field('image_4'),

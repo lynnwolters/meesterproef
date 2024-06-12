@@ -60,7 +60,7 @@ add_action( 'acf/include_fields', function() {
 		array(
 			'key' => 'field_6656eae3bd7d6',
 			'label' => 'Image',
-			'name' => 'image_1',
+			'name' => 'image',
 			'aria-label' => '',
 			'type' => 'image',
 			'instructions' => '',
@@ -84,8 +84,8 @@ add_action( 'acf/include_fields', function() {
 		),
 		array(
 			'key' => 'field_6666eae8adb65',
-			'label' => 'image_2',
-			'name' => 'image_2',
+			'label' => 'Image_2',
+			'name' => 'Image_2',
 			'aria-label' => '',
 			'type' => 'image',
 			'instructions' => '',

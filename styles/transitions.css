@@ -1,51 +1,31 @@
 @supports selector(:has(*)){
     @media (prefers-reduced-motion: no-preference){
-        body:has(#home:target) .scene__room {
-            animation: home-room-flip 2s forwards ease-out;
+        body .scene__room {
+            transform: rotateX(var(--rX,15deg)) rotateY(var(--rY, -45deg)) translateY(var(--tY,-60em));
+            transition: 2s ease-out;
         }
-        
+
         body:has(#over-ons:target) .scene__room {
-            animation: over-ons-room-flip 2s forwards ease-out;
+            --rX:15deg;
+            --rY:45deg;
+            --tY:-60em;
         }
         
         body:has(#shop:target) .scene__room {
-            animation: shop-room-flip 2s forwards ease-out;
+            --rX:195deg;
+            --rY:-45deg;
+            --tY:60em;
         }
         
         body:has(#contact:target) .scene__room {
-            animation: contact-room-flip 2s forwards ease-out;
+            --rX:15deg;
+            --rY:135deg;
+            --tY:-60em;
         }
     }
 }
 
-@keyframes home-room-flip{
-    to{
-        transform: rotateX(15deg) rotateY(-45deg) translateY(-60em);
-    }
-}
-
-@keyframes over-ons-room-flip{
-    to{
-        transform: rotateX(15deg) rotateY(45deg) translateY(-60em);
-    }
-}
-
-@keyframes shop-room-flip{
-    50%{
-        scale: 1.1;
-    }
-
-    100%{
-        transform: rotateX(195deg) rotateY(-45deg) translateY(60em);
-    }
-}
-
-@keyframes contact-room-flip{
-    to{
-        transform: rotateX(15deg) rotateY(135deg) translateY(-60em);
-    }
-}
-
+#home,
 #over-ons,
 #shop,
 #contact{

@@ -58,7 +58,11 @@
     /* wat uitsteekt zie je niet   */
     overflow:hidden;
   }
-  
+
+  body:not(:has(#home:target)) .scheve-scroller {
+    display: none;
+  }
+ 
   
   
   

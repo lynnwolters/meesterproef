@@ -18,7 +18,12 @@
         rotateX(0deg) 
         rotateY(270deg) 
         translateX(10em)
-        translateY(-15em);
+        translateY(-15em)
+    ;
+
+    position: absolute;
+    left: 10%;
+    top: 90%;
 
     display: grid;
     place-items: center;

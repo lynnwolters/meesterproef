@@ -6,7 +6,6 @@
         <div class="scene__room__plane__left"></div>
         <div class="scene__room__plane__right">
 
-        <!-- menu button -->
             <button class="scene__menu">
                 <div class="scene__menu__plane__front">
                     <p>Menu</p>

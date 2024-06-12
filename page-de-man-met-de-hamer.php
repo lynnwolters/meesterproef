@@ -7,6 +7,7 @@
         <div class="scene__room__plane__right"></div>
         <div class="scene__room__plane__top"></div>
         <div class="scene__room__plane__bottom"></div>
+    </section>
 
     <!-- menu button -->
     <button class="scene__menu">
@@ -53,8 +54,6 @@
             </div>
         </div>
     </section> -->
-
-    </section>
     
     <div class="scheve-scroller">
         <div class="indicator"></div>  

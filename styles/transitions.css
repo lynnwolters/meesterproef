@@ -20,13 +20,13 @@
 
 @keyframes home-room-flip{
     to{
-        transform: rotateX(15deg) rotateY(-45deg);
+        transform: rotateX(15deg) rotateY(-45deg) translateY(-60em);
     }
 }
 
 @keyframes over-ons-room-flip{
     to{
-        transform: rotateX(15deg) rotateY(45deg);
+        transform: rotateX(15deg) rotateY(45deg) translateY(-60em);
     }
 }
 
@@ -36,13 +36,13 @@
     }
 
     100%{
-        transform: rotateX(195deg) rotateY(-45deg);
+        transform: rotateX(195deg) rotateY(-45deg) translateY(60em);
     }
 }
 
 @keyframes contact-room-flip{
     to{
-        transform: rotateX(15deg) rotateY(135deg);
+        transform: rotateX(15deg) rotateY(135deg) translateY(-60em);
     }
 }
 

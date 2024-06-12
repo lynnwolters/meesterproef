@@ -41,7 +41,12 @@ img {
 }
 
 body {
+    height: 100dvh;
+    width: 100dvw;
+
     background-color: #2E150D;
+    
+    overflow: hidden;
 }
 
 a, button {
@@ -101,8 +106,7 @@ a, button {
 
     border: none;
 
-    background-color: transparent;
-}
+    background-color: transparent;}
 
 .scene__room div {    
     grid-area: 1/1;

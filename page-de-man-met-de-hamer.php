@@ -15,16 +15,16 @@
             <p>Menu</p>
             <ul class="scene__menu__plane__front__submenu">
                 <li>
-                    <a class="active-link" href="#">Home</a>
+                    <a class="active-link" href="#home">Home</a>
                 </li>
                 <li>
-                    <a href="#">Over Ons</a>
+                    <a href="#over-ons">Over Ons</a>
                 </li>
                 <li>
-                    <a href="#">Shop</a>
+                    <a href="#shop">Shop</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -38,13 +38,22 @@
         <div class="scene__menu__plane__bottom"></div>
     </button>
 
-    <section class="scene__loader">
+    <section id="over-ons">
+    </section>
+
+    <section id="shop">
+    </section>
+
+    <section id="contact">
+    </section>
+
+    <!-- <section class="scene__loader">
         <div class="scene__loader__plane">
             <div class="scene__loader__plane__door">
                 <div class="scene__loader__plane__light"></div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 <?php get_footer(); ?>

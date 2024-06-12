@@ -1,0 +1,55 @@
+@supports selector(:has(*)){
+    @media (prefers-reduced-motion: no-preference){
+        body:has(#home:target) .scene__room {
+            animation: home-room-flip 2s forwards ease-out;
+        }
+        
+        body:has(#over-ons:target) .scene__room {
+            animation: over-ons-room-flip 2s forwards ease-out;
+        }
+        
+        body:has(#shop:target) .scene__room {
+            animation: shop-room-flip 2s forwards ease-out;
+        }
+        
+        body:has(#contact:target) .scene__room {
+            animation: contact-room-flip 2s forwards ease-out;
+        }
+    }
+}
+
+@keyframes home-room-flip{
+    to{
+        transform: rotateX(15deg) rotateY(-45deg);
+    }
+}
+
+@keyframes over-ons-room-flip{
+    to{
+        transform: rotateX(15deg) rotateY(45deg);
+    }
+}
+
+@keyframes shop-room-flip{
+    50%{
+        scale: 1.1;
+    }
+
+    100%{
+        transform: rotateX(195deg) rotateY(-45deg);
+    }
+}
+
+@keyframes contact-room-flip{
+    to{
+        transform: rotateX(15deg) rotateY(135deg);
+    }
+}
+
+#over-ons,
+#shop,
+#contact{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

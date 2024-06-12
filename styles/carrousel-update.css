@@ -57,6 +57,7 @@
     justify-content:center;
     /* wat uitsteekt zie je niet   */
     overflow:hidden;
+    display: none;
   }
   
   

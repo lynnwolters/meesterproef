@@ -1,0 +1,24 @@
+#over-ons {
+    /* background-color: #fff5; */
+    width: 100%;
+}
+
+.over-ons-text {
+    position: relative;
+    left: 50%;
+    top: 2em;
+    /* background-color: #0006; */
+    width: 30em;
+    height: 40em;
+    font-size: 1.5em;
+    overflow-y: scroll;
+
+    transform-style: preserve-3d;
+    transform:
+        rotateX(-15deg)
+        rotateY(-45deg);
+}
+
+.over-ons-text h2 {
+    margin-top: 1em;
+}

@@ -39,7 +39,7 @@ img {
     font-weight: 400;
     letter-spacing: .2em;
     text-transform: uppercase;
-    text-align: center;
+    /* text-align: center; */
     line-height: 110%;
     color: white;
     text-decoration: none;

@@ -65,7 +65,7 @@
     }
 }
 
-.scene__slide div {    
+.scene__slide > div {    
     grid-area: 1/1;
 
     display: flex;

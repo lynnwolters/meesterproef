@@ -7,6 +7,10 @@
     margin-right: auto;
 }
 
+.dialog h2, p, a, span {
+    color: black;
+}
+
 .dialog button{
     position: absolute;
     top: 10px;
@@ -20,4 +24,8 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.data_pop-up {
+    display: none;
 }

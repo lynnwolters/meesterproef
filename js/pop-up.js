@@ -8,10 +8,10 @@ const dialogUrlTitle = document.querySelector(".dialog .url .title");
 const additionalInfoContainer = document.querySelector(".dialog .additional-info");
 const additionalImagesContainer = document.querySelector(".dialog .additional-images");
 
-const slides2 = document.querySelectorAll(".scene__slide");
+const slides2 = document.querySelectorAll(".item");
 
 slides2.forEach(slide => {
-    const image = slide.querySelector(".scene__slide__plane__front img");
+    const image = slide.querySelector(".item img");
     const dataPopUp = slide.querySelector(".data_pop-up");
 
     image.addEventListener("click", event => {

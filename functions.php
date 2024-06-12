@@ -85,7 +85,7 @@ add_action( 'acf/include_fields', function() {
 		array(
 			'key' => 'field_6666eae8adb65',
 			'label' => 'image_2',
-			'name' => 'Image_2',
+			'name' => 'image_2',
 			'aria-label' => '',
 			'type' => 'image',
 			'instructions' => '',
@@ -251,16 +251,16 @@ add_action( 'acf/include_fields', function() {
 				'value' => 'portfolio',
 			),
 		),
-		'menu_order' => 0,
-		'position' => 'normal',
-		'style' => 'default',
-		'label_placement' => 'top',
-		'instruction_placement' => 'label',
-		'hide_on_screen' => '',
-		'active' => true,
-		'description' => '',
-		'show_in_rest' => 0,
-	) );
-	} );
-	
-	
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+} );
+

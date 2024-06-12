@@ -41,36 +41,30 @@
 
     </section>
     
-    <section class="scene__carrousel">
-    <?php
+    <div class="scheve-scroller">
+        <div class="indicator"></div>  
+        <ul class="list">
+            <?php
 
-        $args = array(
-            'post_type' => 'portfolio',
-            'posts_per_page' => 30,
-        );
+                $args = array(
+                    'post_type' => 'portfolio',
+                    'posts_per_page' => -1,
+                );
 
-        $blogposts = new WP_Query($args);
+                $blogposts = new WP_Query($args);
 
-        while ($blogposts->have_posts()) {
-            $blogposts->the_post();
+                while ($blogposts->have_posts()) {
+                    $blogposts->the_post();
 
-        ?>
-        
-        <div class="scene__slide">
-            <div class="scene__slide__plane__front">
-                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="750x500x1">
-            </div>
-            <div class="scene__slide__plane__back"></div>
-            <div class="scene__slide__plane__left"></div>
-            <div class="scene__slide__plane__right"></div>
-            <div class="scene__slide__plane__top"></div>
-            <div class="scene__slide__plane__bottom"></div>
-        </div>
-     
-    <?php }
-    wp_reset_query();
-    ?>
-     
-    </section>
+                ?>
+                    <li class="item">
+                        <button href="#"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="750x500x1"></button>
+                    </li>
+            
+            <?php }
+            wp_reset_query();
+            ?>   
+        </ul>
+    </div>
 
 <?php get_footer(); ?>

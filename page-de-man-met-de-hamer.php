@@ -7,7 +7,6 @@
         <div class="scene__room__plane__right"></div>
         <div class="scene__room__plane__top"></div>
         <div class="scene__room__plane__bottom"></div>
-    </section>
 
     <!-- menu button -->
     <button class="scene__menu">
@@ -55,5 +54,32 @@
         </div>
     </section> -->
 
+    </section>
+    
+    <div class="scheve-scroller">
+        <div class="indicator"></div>  
+        <ul class="list">
+            <?php
+
+                $args = array(
+                    'post_type' => 'portfolio',
+                    'posts_per_page' => -1,
+                );
+
+                $blogposts = new WP_Query($args);
+
+                while ($blogposts->have_posts()) {
+                    $blogposts->the_post();
+
+                ?>
+                    <li class="item">
+                        <button href="#"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="750x500x1"></button>
+                    </li>
+            
+            <?php }
+            wp_reset_query();
+            ?>   
+        </ul>
+    </div>
 
 <?php get_footer(); ?>

@@ -16,9 +16,13 @@ img {
     --menu-height: 5em;
     --menu-depth: 5em;
 
-    --room-width: 100dvw;
-    --room-height: 100dvh;
-    --room-depth: 100dvw;
+    /* --slide-width: 20em;
+    --slide-height: 25em;
+    --slide-depth: 1em; */
+
+    --room-width: 200em;
+    --room-height: 200em;
+    --room-depth: 200em;
 }
 
 /* ********** */
@@ -99,10 +103,15 @@ a, button {
 
 .scene__room {
     transform-style: preserve-3d;
-    transform: rotateX(15deg) rotateY(-45deg);
+    transform: 
+        rotateX(15deg) 
+        rotateY(-45deg)
+        translateY(-60em)
+        ;
 
     display: grid;
     place-items: center;
+    /* position: fixed; */
 
     border: none;
 
@@ -150,8 +159,6 @@ a, button {
 
     transform: rotateY(90deg) translateZ(calc(var(--room-width) / -2));
 
-    padding: .8em;
-
     background-color: #863939;
     opacity: 0;
 }
@@ -163,6 +170,8 @@ a, button {
 
     transform: rotateY(90deg) translateZ(calc(var(--room-width) / 2));
     transform-style: preserve-3d;
+
+    position: relative;
 
     background-color: #863939;
 }

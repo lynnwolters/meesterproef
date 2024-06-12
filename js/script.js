@@ -9,17 +9,30 @@ function toggleMenu() {
     leftPlaneExtension.classList.toggle("toggle-menu");
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the current URL hash (e.g., #home, #over-ons)
-    var hash = window.location.hash;
+// scroll carrousel
+// const slides = document.querySelectorAll(".scene__slide");
+// let scrollPosition = 0;
 
-    if (hash) {
-        // Remove the # character from the hash
-        var className = hash.substring(1);
+// function updateTransforms() {
+//   slides.forEach((div) => {
+//     const isHovered = div.matches(':hover');
+//     const hoverTransform = isHovered ? ' translateY(-5em)' : '';
 
-        // Check if the class exists before adding it to the body
-        if (document.body.classList.contains(className)) {
-            document.body.classList.add(className);
-        }
-    }
-});
+//     div.style.transform = `
+//       rotateX(-90deg) 
+//       translateZ(${scrollPosition}px)
+//       ${hoverTransform}
+//     `;
+//   });
+// }
+
+// window.addEventListener("wheel", (event) => {
+//   scrollPosition += event.deltaY * -1; // Adjust the scroll speed as needed
+//   updateTransforms();
+// });
+
+// // Ensure hover state is checked continuously
+// slides.forEach((div) => {
+//   div.addEventListener("mouseenter", updateTransforms);
+//   div.addEventListener("mouseleave", updateTransforms);
+// });

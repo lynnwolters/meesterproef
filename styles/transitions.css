@@ -3,6 +3,7 @@
         body .scene__room {
             transform: rotateX(var(--rX,15deg)) rotateY(var(--rY, -45deg)) translateY(var(--tY,-60em));
             transition: 2s ease-out;
+            transition-delay: 1s;
         }
 
         body:has(#over-ons:target) .scene__room {

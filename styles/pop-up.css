@@ -5,10 +5,14 @@
     max-height: 100vh;
     margin-left: auto;
     margin-right: auto;
-}
 
-.dialog h2, p, a, span {
-    color: black;
+    h2,
+    p,
+    a,
+    span,
+    button{
+        color: black;
+    }
 }
 
 .dialog button{

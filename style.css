@@ -24,6 +24,8 @@ img {
     --secondary-color: #863939;
     --tertiary-color: #DC6A01;
     --tertiary-color-dark: #2E150D;
+
+    --transition-base: .5s ease-out;
 }
 
 /* ********** */

@@ -38,6 +38,9 @@
         <div class="scene__menu__plane__bottom"></div>
     </button>
 
+    <section id="home">
+    </section>
+
     <section id="over-ons">
     </section>
 

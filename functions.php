@@ -16,6 +16,7 @@ function bofesto_setup(){
 
     wp_enqueue_script("main", get_theme_file_uri('/js/script.js'), NULL, microtime(), true);
 	wp_enqueue_script("pop-up", get_theme_file_uri('/js/pop-up.js'), NULL, microtime(), true);
+	wp_enqueue_script("swing", get_theme_file_uri('/js/swing.js'), NULL, microtime(), true);
 }
 
 add_action('wp_enqueue_scripts', 'bofesto_setup');

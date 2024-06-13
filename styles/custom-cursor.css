@@ -1,0 +1,16 @@
+.custom-cursor {
+    width: fit-content;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    margin: 1em;
+
+    pointer-events: none;
+
+    transition: .3s ease-out; 
+}
+
+

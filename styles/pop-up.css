@@ -3,6 +3,7 @@
 
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     width: 80dvw;
     height: 80dvh;
@@ -11,9 +12,6 @@
     border: none;
 
     padding: var(--dialog-padding-size);
-    /* h2, p, a, span, button {
-        color: black;
-    } */
 }
 
 dialog[open]{
@@ -31,6 +29,15 @@ dialog[open]{
     border-radius: 50%;
     border: .15em solid color-mix(in srgb, white, transparent 20%);
     background-color: transparent;
+    transition: var(--transition-base);
+
+    &:hover{
+        background-color: black;
+
+        span{
+            rotate: 1turn;
+        }
+    }
 
 
     span{
@@ -39,6 +46,7 @@ dialog[open]{
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: var(--transition-base);
 
         &::before,
         &::after{
@@ -63,7 +71,7 @@ dialog[open]{
 .dialog h2{
     position: absolute;
     top: calc(var(--dialog-padding-size) / 2);
-    font-size: 2em;
+    font-size: clamp(1em, 4vw, 3em);
 }
 
 .dialog a{
@@ -95,10 +103,16 @@ dialog[open]{
 .additional-images{
     height: 70%;
     display: flex;
-    overflow-x: scroll;
-    transform: translateY(17.5%);
+    flex-direction: column;
+    overflow-y: scroll;
+    transform: translateY(5%);
+
+    @media (min-width: 1000px){
+        width: 50%;
+    }
 }
 
 .additional-images img{
-   height: 100%;
+   height: auto;
+   width: 100%;
 }

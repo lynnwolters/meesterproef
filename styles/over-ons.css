@@ -1,10 +1,15 @@
 #over-ons {
+    --text-height: 90vh;
+
     /* background-color: #fff5; */
     width: 100%;
     position: relative;
     /* margin-top: 10em; */
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* transform: translateY(10em); */
+
+    transition: var(--page-transition);
 }
 
 #over-ons p {
@@ -18,15 +23,17 @@
 .vrienden-text {
     /* background-color: #0006; */
     max-width: 40em;
-    height: 20em;
+    height: 80vh;
     font-size: 2em;
     overflow-y: scroll;
-    /* margin: auto; */
+    margin-top: 5em;
 
     transform-style: preserve-3d;
     transform:
         rotateX(-15deg)
         rotateY(-45deg);
+
+    color: var(--tertiary-color);
 }
 
 .vrienden-text h2 {
@@ -40,15 +47,16 @@
 .over-ons-text {
     /* background-color: #0006; */
     max-width: 40em;
-    height: 20em;
+    height: var(--text-height);
     font-size: 2em;
     overflow-y: scroll;
-    /* margin: auto; */
+    margin-top: 2em;
 
     transform-style: preserve-3d;
     transform:
         rotateX(15deg)
         rotateY(-45deg);
+
 }
 
 .over-ons-text h2 {

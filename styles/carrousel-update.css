@@ -58,7 +58,7 @@ body {
   /* wat uitsteekt zie je niet   */
   overflow:hidden;
 
-  transition: 5s 1s ease-in-out;
+  transition: var(--page-transition);
 }
 
 

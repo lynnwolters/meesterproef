@@ -43,3 +43,7 @@ body:not(:has(#home:target)) .scheve-scroller {
     transform: translateY(-150vh);
 }
 
+/* body:not(:has(#over-ons:target)) .scheve-scroller {
+    transform: translateY(-150vh);
+} */
+

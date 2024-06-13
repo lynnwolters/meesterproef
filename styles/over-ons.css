@@ -2,7 +2,7 @@
     /* background-color: #fff5; */
     width: 100%;
     position: relative;
-    margin-top: 10em;
+    /* margin-top: 10em; */
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

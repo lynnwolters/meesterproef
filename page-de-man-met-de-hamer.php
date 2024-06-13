@@ -107,11 +107,15 @@
         ?>   
     </ul>
     <dialog class="dialog">
-        <button>X</button>
+        <button class="close-btn">
+            <span></span>
+        </button>
         <!-- <img src=""> -->
         <h2 class="title"></h2>
-        <a class="url" href="">Bekijk project <span class="title"></span></a>
-        <div class="additional-info"></div>
+        <div class="dialog-content-container">
+            <a class="url" href="">Bekijk project <span class="title"></span></a>
+            <div class="additional-info"></div>
+        </div>
         <div class="additional-images"></div>
     </dialog>
 </div>

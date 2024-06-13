@@ -1,3 +1,14 @@
+#home,
+#over-ons,
+#shop,
+#contact{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* room spin transitions */
+
 @supports selector(:has(*)){
     @media (prefers-reduced-motion: no-preference){
         body .scene__room {
@@ -26,11 +37,9 @@
     }
 }
 
-#home,
-#over-ons,
-#shop,
-#contact{
-    position: absolute;
-    top: 0;
-    left: 0;
+/* caroussel naar boven */
+
+body:not(:has(#home:target)) .scheve-scroller {
+    transform: translateY(-150vh);
 }
+

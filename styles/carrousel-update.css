@@ -61,13 +61,6 @@
     transition: 5s 1s ease-in-out;
   }
 
-  body:not(:has(#home:target)) .scheve-scroller {
-    transform: translateY(-150vh);
-  }
-
- 
-  
-  
   
   /*************/
   /* INDICATOR */

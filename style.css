@@ -38,7 +38,7 @@ img {
     font-family: "Outfit", sans-serif;
     font-weight: 400;
     letter-spacing: .2em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     /* text-align: center; */
     line-height: 110%;
     color: white;

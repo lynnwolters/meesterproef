@@ -1,17 +1,27 @@
 #over-ons {
     /* background-color: #fff5; */
     width: 100%;
+    position: relative;
+    margin-top: 10em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.over-ons-text {
-    position: relative;
-    left: 50%;
-    top: 2em;
+#over-ons p {
+    margin-top: 1em;
+}
+
+/* ******************* */
+/* VRIENDEN VAN DMMDH */
+/* ***************** */
+
+.vrienden-text {
     /* background-color: #0006; */
-    width: 30em;
-    height: 40em;
-    font-size: 1.5em;
+    max-width: 40em;
+    height: 20em;
+    font-size: 2em;
     overflow-y: scroll;
+    /* margin: auto; */
 
     transform-style: preserve-3d;
     transform:
@@ -19,6 +29,34 @@
         rotateY(-45deg);
 }
 
+.vrienden-text h2 {
+    margin-top: 1em;
+}
+
+/* ********* */
+/* OVER ONS */
+/* ******* */
+
+.over-ons-text {
+    /* background-color: #0006; */
+    max-width: 40em;
+    height: 20em;
+    font-size: 2em;
+    overflow-y: scroll;
+    /* margin: auto; */
+
+    transform-style: preserve-3d;
+    transform:
+        rotateX(15deg)
+        rotateY(-45deg);
+}
+
 .over-ons-text h2 {
     margin-top: 1em;
+}
+
+/* scrollbar */
+.over-ons-text, .vrienden-text {
+    scrollbar-width: thin;
+    scrollbar-color: #0005 transparent;
 }

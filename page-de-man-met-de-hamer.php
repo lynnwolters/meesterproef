@@ -38,6 +38,9 @@
         <div class="scene__menu__plane__bottom"></div>
     </button>
 
+    <section id="home">
+    </section>
+
     <section id="over-ons">
     <div class="over-ons-text">
             <h2>Over ons</h2>
@@ -70,29 +73,71 @@ Geef ons een belletje en kom langs in onze werkplaats in Diemen om te ontdekken 
     </section> -->
     
     <div class="scheve-scroller">
-        <div class="indicator"></div>  
-        <ul class="list">
-            <?php
+    <div class="indicator"></div>  
+    <ul class="list">
+        <?php
 
-                $args = array(
-                    'post_type' => 'portfolio',
-                    'posts_per_page' => -1,
-                );
+            $args = array(
+                'post_type' => 'portfolio',
+                'posts_per_page' => -1,
+            );
 
-                $blogposts = new WP_Query($args);
+            $blogposts = new WP_Query($args);
 
-                while ($blogposts->have_posts()) {
-                    $blogposts->the_post();
+            while ($blogposts->have_posts()) {
+                $blogposts->the_post();
 
-                ?>
-                    <li class="item">
-                        <button href="#"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="750x500x1"></button>
-                    </li>
-            
-            <?php }
-            wp_reset_query();
-            ?>   
-        </ul>
-    </div>
+                // Get the thumbnail ID of the current post
+                $thumbnail_id = get_post_thumbnail_id(get_the_ID());
+
+                // Get the medium-sized image URL
+                $thumbnail = wp_get_attachment_image_src($thumbnail_id, 'medium');
+                $thumbnail_url = $thumbnail[0];
+
+                // Get the alt text of the thumbnail
+                $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+
+                // Get the custom field 'year' from ACF
+                $year = get_field('year');
+                $photographer = get_field('Photographer');
+                $ontwerper = get_field('Ontwerper');
+
+                // Get the multiple image fields
+                $images = [
+                    get_field('image'),
+                    get_field('Image_2'),
+                    get_field('image_3'),
+                    get_field('image_4'),
+                    get_field('image_5'),
+                ];
+
+            ?>
+                <li class="item">
+                    <button href="#">
+                        <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
+                    </button>
+                    <div class="data_pop-up" data-title="<?php the_title(); ?>" data-url="<?php the_permalink(); ?>" data-year="<?php echo esc_html($year); ?>" data-photographer="<?php echo esc_html($photographer); ?>" data-ontwerper="<?php echo esc_html($ontwerper); ?>" data-images='<?php echo json_encode(array_column($images, 'url')); ?>'>
+                        <!-- Store image URLs in a data attribute -->
+                    </div>
+                </li>
+        
+        <?php }
+        wp_reset_query();
+        ?>   
+    </ul>
+    <dialog class="dialog">
+        <button class="close-btn">
+            <span></span>
+        </button>
+        <!-- <img src=""> -->
+        <h2 class="title"></h2>
+        <div class="dialog-content-container">
+            <a class="url" href="">Bekijk project <span class="title"></span></a>
+            <div class="additional-info"></div>
+        </div>
+        <div class="additional-images"></div>
+    </dialog>
+</div>
+
 
 <?php get_footer(); ?>

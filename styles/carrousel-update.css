@@ -3,273 +3,272 @@
 /********************/
 
 * {
-    box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+html {
+  height:100dvh;
+}
+
+body {
+  min-height:100%;
+  margin:0;
+  background-image:linear-gradient(in oklch, hotpink,lightskyblue);
+  
+  timeline-scope: --scheve-scroller;
+}
+
+/**********************/
+/* DE SCHEVE SCROLLER */
+/**********************/
+
+.scheve-scroller {
+  /* --slides-angle:75deg; */
+  --slides-angle:75deg;
+  /* kan ook positief - dan is er meer ruimte tussen de slides */
+  /* niet kleiner maken dan de --slide-height */
+  --slides-spacing: calc(var(--slide-height) * -.825);
+  
+  /* ruimte boven of links (en aan het einde van het scrollen onder of rechts) */
+  --slides-margin:2em;
+  
+  --slide-width:clamp(10em, 15vw, 20em);
+  --slide-height:clamp(15em, 22.5vw, 30em);
+  --slide-depth:.5em;
+  
+  --slide-angle:14deg;
+  --slide-depth-angle:60deg;
+  
+  --slide-kleur-bovenkant:White;
+  --slide-kleur-zijkant:Orange;
+  --slide-kleur-touw:#fff8;
+  
+  --slide-offset-touwtje:calc(var(--slide-width) * .1);
+}
+
+
+.scheve-scroller {
+  /* vult het hele scherm */
+  position:fixed;
+  inset:0em;
+  
+  /* de list horizontaal in het midden */
+  display:grid;
+  justify-content:center;
+  /* wat uitsteekt zie je niet   */
+  overflow:hidden;
+
+  transition: 5s 1s ease-in-out;
+}
+
+
+/*************/
+/* INDICATOR */
+/*************/
+
+.indicator {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1;
+  
+  height:.5em;
+  
+  background-color:#fff6;
+  
+  background-image:linear-gradient(90deg in oklch, black, #BC2A2A calc( var(--p, 0) * 100% ), transparent 0);
+  animation:--ani-indicator linear both;
+  animation-timeline: --scheve-scroller;
+}
+
+@property --p {
+  syntax:"<number>";
+  inherits:true;
+  initial-value:0;
+}
+
+@keyframes --ani-indicator{
+  100% {
+    --p:1;
   }
+}
+
+
+
+/***********/
+/* DE LIST */
+/***********/
+
+.scheve-scroller .list {
+  position: absolute;
+  /* van boven tot onder --> allebei 0 */
+  /* steekt links en rechts heel ver uit --> -10000% */
+  inset:0 -10000%;
   
-  html {
-    height:100dvh;
-  }
-  
-  body {
-    min-height:100%;
-    margin:0;
-    background-image:linear-gradient(in oklch, hotpink,lightskyblue);
-    
-    timeline-scope: --scheve-scroller;
-  }
-  
-  /**********************/
-  /* DE SCHEVE SCROLLER */
-  /**********************/
-  
-  .scheve-scroller {
-    /* --slides-angle:75deg; */
-    --slides-angle:75deg;
-    /* kan ook positief - dan is er meer ruimte tussen de slides */
-    /* niet kleiner maken dan de --slide-height */
-    --slides-spacing: calc(var(--slide-height) * -.825);
-    
-    /* ruimte boven of links (en aan het einde van het scrollen onder of rechts) */
-    --slides-margin:2em;
-    
-    --slide-width:clamp(10em, 15vw, 20em);
-    --slide-height:clamp(15em, 22.5vw, 30em);
-    --slide-depth:.5em;
-    
-    --slide-angle:14deg;
-    --slide-depth-angle:60deg;
-    
-    --slide-kleur-bovenkant:White;
-    --slide-kleur-zijkant:Orange;
-    --slide-kleur-touw:#fff8;
-    
-    --slide-offset-touwtje:calc(var(--slide-width) * .1);
-  }
+  /* default list dingen ongedaan maken*/
+  margin:0;
+  padding:0;
+  list-style-type:"";
   
   
-  .scheve-scroller {
-    /* vult het hele scherm */
-    position:fixed;
-    inset:0em;
-    
-    /* de list horizontaal in het midden */
-    display:grid;
-    justify-content:center;
-    /* wat uitsteekt zie je niet   */
-    overflow:hidden;
-    display: none;
-  }
+  display:grid;
+  /* als de --slides-spacing negatief is ... */
+  /* dan is de hoogte van een grid-row kleiner dan de hoogte van een item ... */
+  /* daarmee komen de items dichter bij elkaar te staan */
+  grid-auto-rows:calc( var(--slide-height) + var(--slides-spacing) );
+  /* een slide staat in het midden van de grid-cel */
+  place-items:center;
+  
+  /* moeilijk gereken om te zorgen dat de items ... */
+  /* de --slides-margin van boven of van links beginnen */
+  /* nb. tan() werkt niet in alle browsers */
+  padding-block:
+    max(
+      calc( 
+        var(--slides-spacing) * -.5 + 
+        tan( var(--slide-angle) ) * var(--slide-width) * .5 +
+        var( --slides-margin)
+      ),
+      calc( 
+        (50dvh - ( var(--slide-height) + var(--slides-spacing) ) / 2) -
+        ( (50vw - var( --slides-margin) - var(--slide-width) / 2) / tan(var(--slides-angle)) )
+      )
+    );
   
   
+  /* de hoek van de list */
+  transform: skewX( var(--slides-angle) );
   
+  /* zodat je kunt scrollen in de list */
+  overflow: auto;
+  scrollbar-width: none;
   
-  /*************/
-  /* INDICATOR */
-  /*************/
-  
-  .indicator {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    z-index:1;
-    
-    height:.5em;
-    
-    background-color:#fff6;
-    
-    background-image:linear-gradient(90deg in oklch, black, #BC2A2A calc( var(--p, 0) * 100% ), transparent 0);
-    animation:--ani-indicator linear both;
-    animation-timeline: --scheve-scroller;
-  }
-  
-  @property --p {
-    syntax:"<number>";
-    inherits:true;
-    initial-value:0;
-  }
-  
-  @keyframes --ani-indicator{
-    100% {
-      --p:1;
-    }
-  }
-  
-  
-  
-  /***********/
-  /* DE LIST */
-  /***********/
-  
+  /* voor de indicator */
+  scroll-timeline: --scheve-scroller;
+}
+
+@media (prefers-reduced-motion:no-preference) {
   .scheve-scroller .list {
-    position: absolute;
-    /* van boven tot onder --> allebei 0 */
-    /* steekt links en rechts heel ver uit --> -10000% */
-    inset:0 -10000%;
-    
-    /* default list dingen ongedaan maken*/
-    margin:0;
-    padding:0;
-    list-style-type:"";
-    
-    
-    display:grid;
-    /* als de --slides-spacing negatief is ... */
-    /* dan is de hoogte van een grid-row kleiner dan de hoogte van een item ... */
-    /* daarmee komen de items dichter bij elkaar te staan */
-    grid-auto-rows:calc( var(--slide-height) + var(--slides-spacing) );
-    /* een slide staat in het midden van de grid-cel */
-    place-items:center;
-    
-    /* moeilijk gereken om te zorgen dat de items ... */
-    /* de --slides-margin van boven of van links beginnen */
+    /* weet niet of dit fijn is - speelt een rol bij tab-ben */
+    scroll-behavior:smooth;
+    scroll-padding:calc( var(--slide-width) + var(--slides-margin) );
+  }
+}
+
+.scheve-scroller .list::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+/************/
+/* EEN ITEM */
+/************/
+
+.scheve-scroller .item {
+  /* de maat */
+  width: var(--slide-width);
+  height: var(--slide-height);
+
+  /* een slide wordt terug geskewXt - om de skew van de list te compenseren */
+  /* dan een stukje geScaled - om het uitrekken door skewY te compenseren */
+  /* en tenslotte geskewYt */
+  /* nb. cos() werkt niet in alle browsers */
+  transform:
+    skewX( calc(var(--slides-angle) * -1) )
+    scaleX( cos( var(--slide-angle) ) )
+    skewY( calc(var(--slide-angle) * -1) );
+}
+
+/* bovenkant van een item */
+.scheve-scroller .item::before {
+  content:"";
+  
+  position:absolute;
+  bottom:100%;
+  left:0;
+  
+  width:100%;
+  height:var(--slide-depth);
+  
+  background-color:var(--slide-kleur-bovenkant);
+  
+  transform-origin:bottom;
+  transform:skewX( var(--slide-depth-angle) );
+} 
+
+/* zijkant van een item */
+.scheve-scroller .item::after {
+  content:"";
+  position:absolute;
+  right:100%;
+  top:0;
+  width:var(--slide-depth);
+  height:100%;
+  
+  background-color:var(--slide-kleur-zijkant);
+  
+  transform-origin:right;
+  transform:
+    skewY( calc(90deg - var(--slide-depth-angle) ) )
+    scaleX( tan( var(--slide-depth-angle) ) );
+    /* beetje scaleX-en om de zijkant gelijk te maken met de bovenkant */
     /* nb. tan() werkt niet in alle browsers */
-    padding-block:
-      max(
-        calc( 
-          var(--slides-spacing) * -.5 + 
-          tan( var(--slide-angle) ) * var(--slide-width) * .5 +
-          var( --slides-margin)
-        ),
-        calc( 
-          (50dvh - ( var(--slide-height) + var(--slides-spacing) ) / 2) -
-          ( (50vw - var( --slides-margin) - var(--slide-width) / 2) / tan(var(--slides-angle)) )
-        )
-      );
-    
-    
-    /* de hoek van de list */
-    transform: skewX( var(--slides-angle) );
-    
-    /* zodat je kunt scrollen in de list */
-    overflow: auto;
-    scrollbar-width: none;
-    
-    /* voor de indicator */
-    scroll-timeline: --scheve-scroller;
-  }
+} 
+
+
+
+
+/***************/
+/* DE TOUWTJES */
+/***************/
+
+/* de a wordt gebruikt voor de touwtjes */
+
+.scheve-scroller .item button {
+  position:relative;
+  height:100%;
+  width: 100%;
+  display:block;
+  border: none;
+}
+
+/* de touwtjes */
+.scheve-scroller .item button::before {
+  content:"";
+  position:absolute;
+  bottom:100%;
+  left:var(--slide-offset-touwtje);
   
-  @media (prefers-reduced-motion:no-preference) {
-    .scheve-scroller .list {
-      /* weet niet of dit fijn is - speelt een rol bij tab-ben */
-      scroll-behavior:smooth;
-      scroll-padding:calc( var(--slide-width) + var(--slides-margin) );
-    }
-  }
+  width:calc(100% - var(--slide-offset-touwtje) * 2);
+  height:75%;
   
-  .scheve-scroller .list::-webkit-scrollbar {
-    display: none;
-  }
+  background-image:
+    linear-gradient(
+      90deg,
+      var(--slide-kleur-touw) 2px,
+      transparent 0 calc(100% - 2px),
+      var(--slide-kleur-touw)
+    );
   
-  
-  
-  
-  /************/
-  /* EEN ITEM */
-  /************/
-  
-  .scheve-scroller .item {
-    /* de maat */
-    width: var(--slide-width);
-    height: var(--slide-height);
-  
-    /* een slide wordt terug geskewXt - om de skew van de list te compenseren */
-    /* dan een stukje geScaled - om het uitrekken door skewY te compenseren */
-    /* en tenslotte geskewYt */
-    /* nb. cos() werkt niet in alle browsers */
-    transform:
-      skewX( calc(var(--slides-angle) * -1) )
-      scaleX( cos( var(--slide-angle) ) )
-      skewY( calc(var(--slide-angle) * -1) );
-  }
-  
-  /* bovenkant van een item */
-  .scheve-scroller .item::before {
-    content:"";
-    
-    position:absolute;
-    bottom:100%;
-    left:0;
-    
-    width:100%;
-    height:var(--slide-depth);
-    
-    background-color:var(--slide-kleur-bovenkant);
-    
-    transform-origin:bottom;
-    transform:skewX( var(--slide-depth-angle) );
-  } 
-  
-  /* zijkant van een item */
-  .scheve-scroller .item::after {
-    content:"";
-    position:absolute;
-    right:100%;
-    top:0;
-    width:var(--slide-depth);
-    height:100%;
-    
-    background-color:var(--slide-kleur-zijkant);
-    
-    transform-origin:right;
-    transform:
-      skewY( calc(90deg - var(--slide-depth-angle) ) )
-      scaleX( tan( var(--slide-depth-angle) ) );
-      /* beetje scaleX-en om de zijkant gelijk te maken met de bovenkant */
-      /* nb. tan() werkt niet in alle browsers */
-  } 
-  
-  
-  
-  
-  /***************/
-  /* DE TOUWTJES */
-  /***************/
-  
-  /* de a wordt gebruikt voor de touwtjes */
-  
-  .scheve-scroller .item button {
-    position:relative;
-    height:100%;
-    width: 100%;
-    display:block;
-    border: none;
-  }
-  
-  /* de touwtjes */
-  .scheve-scroller .item button::before {
-    content:"";
-    position:absolute;
-    bottom:100%;
-    left:var(--slide-offset-touwtje);
-    
-    width:calc(100% - var(--slide-offset-touwtje) * 2);
-    height:75%;
-    
-    background-image:
-      linear-gradient(
-        90deg,
-        var(--slide-kleur-touw) 2px,
-        transparent 0 calc(100% - 2px),
-        var(--slide-kleur-touw)
-      );
-    
-    /* nb. tan() werkt niet in alle browsers */
-    transform:
-      translateX(calc( tan( var(--slide-depth-angle) ) * var(--slide-depth) * -.5 ))
-      translateY(calc( var(--slide-depth) * -.5 ));
-  }
-  
-  
-  
-  
-  /*****************/
-  /* DE AFBEELDING */
-  /*****************/
-  
-  .scheve-scroller .item img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-  }
+  /* nb. tan() werkt niet in alle browsers */
+  transform:
+    translateX(calc( tan( var(--slide-depth-angle) ) * var(--slide-depth) * -.5 ))
+    translateY(calc( var(--slide-depth) * -.5 ));
+}
+
+
+
+
+/*****************/
+/* DE AFBEELDING */
+/*****************/
+
+.scheve-scroller .item img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}

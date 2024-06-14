@@ -59,43 +59,43 @@
     </section> -->
     
     <div class="scheve-scroller">
-    <div class="indicator"></div>  
-    <ul class="list">
-        <?php
+        <div class="indicator"></div>  
+        <ul class="list">
+            <?php
 
-            $args = array(
-                'post_type' => 'portfolio',
-                'posts_per_page' => -1,
-            );
+                $args = array(
+                    'post_type' => 'portfolio',
+                    'posts_per_page' => -1,
+                );
 
-            $blogposts = new WP_Query($args);
+                $blogposts = new WP_Query($args);
 
-            while ($blogposts->have_posts()) {
-                $blogposts->the_post();
+                while ($blogposts->have_posts()) {
+                    $blogposts->the_post();
 
-                // Get the thumbnail ID of the current post
-                $thumbnail_id = get_post_thumbnail_id(get_the_ID());
+                    // Get the thumbnail ID of the current post
+                    $thumbnail_id = get_post_thumbnail_id(get_the_ID());
 
-                // Get the medium-sized image URL
-                $thumbnail = wp_get_attachment_image_src($thumbnail_id, 'medium');
-                $thumbnail_url = $thumbnail[0];
+                    // Get the medium-sized image URL
+                    $thumbnail = wp_get_attachment_image_src($thumbnail_id, 'medium');
+                    $thumbnail_url = $thumbnail[0];
 
-                // Get the alt text of the thumbnail
-                $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                    // Get the alt text of the thumbnail
+                    $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
 
-                // Get the custom field 'year' from ACF
-                $year = get_field('year');
-                $photographer = get_field('Photographer');
-                $ontwerper = get_field('Ontwerper');
+                    // Get the custom field 'year' from ACF
+                    $year = get_field('year');
+                    $photographer = get_field('Photographer');
+                    $ontwerper = get_field('Ontwerper');
 
-                // Get the multiple image fields
-                $images = [
-                    get_field('image'),
-                    get_field('Image_2'),
-                    get_field('image_3'),
-                    get_field('image_4'),
-                    get_field('image_5'),
-                ];
+                    // Get the multiple image fields
+                    $images = [
+                        get_field('image'),
+                        get_field('Image_2'),
+                        get_field('image_3'),
+                        get_field('image_4'),
+                        get_field('image_5'),
+                    ];
 
             ?>
                 <li class="item">
@@ -107,8 +107,9 @@
                     </div>
                 </li>
         
-        <?php }
-        wp_reset_query();
+        <?php 
+            }
+            wp_reset_query();
         ?>   
     </ul>
     <dialog class="dialog">

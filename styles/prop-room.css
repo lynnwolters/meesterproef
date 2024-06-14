@@ -1,0 +1,203 @@
+/* ********** */
+/* PROP ROOM */
+/* ******** */
+
+/* Scene */
+.scene {
+    transform-style: preserve-3d;
+
+    display: flex;
+    justify-content: end;
+    align-items: start;
+
+    padding: 6em 4em;
+}
+
+/* Prop room */
+.prop-room {
+    transform-style: preserve-3d;
+    transform: 
+        rotateX(75deg)
+        rotateZ(-45deg)
+        translateX(-35em)
+    ;
+    
+}
+
+.prop-room__box {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-90deg);
+
+    display: grid;
+    place-items: center;
+
+    margin: 20em;
+
+    transition: .2s;
+
+    cursor: pointer;
+}
+
+.prop-room__box__plane {  
+    transform-style: preserve-3d;
+
+    grid-area: 1/1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Front */
+.prop-room__box__plane--front {
+    width: var(--box-width);
+    height: var(--box-height);
+
+    position: relative;
+    transform: translateZ(calc(var(--box-depth) / 2));
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background-color: #A62828;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Back */
+.prop-room__box__plane--back {
+    width: var(--box-width);
+    height: var(--box-height);
+
+    transform: rotateY(180deg) translateZ(calc(var(--box-depth) / 2));
+
+    background-color: #CF6604;
+}
+
+/* Left */
+.prop-room__box__plane--left {
+    width: var(--box-depth);
+    height: var(--box-height);
+
+    position: relative;
+    transform: rotateY(90deg) translateZ(calc(var(--box-width) / -2));
+
+    background-color: #2E150D;
+}
+
+/* Right */
+.prop-room__box__plane--right {
+    width: var(--box-depth);
+    height: var(--box-height);
+
+    transform: rotateY(-90deg) translateZ(calc(var(--box-width) / -2));
+
+    background-color: #a95100;
+}
+
+/* Top */
+.prop-room__box__plane--top {
+    width: var(--box-width);
+    height: var(--box-depth);
+
+    transform: rotateX(-90deg) translateZ(calc(var(--box-height) / -2));
+
+    background-color: transparent;
+
+    & .prop-room__box__plane__top__lid--top {
+        width: 100%;
+        height: 50%;
+
+        position: absolute;
+        top: 0;
+        transform-origin: center top;
+
+        background-color: #642424;
+
+        transition: all .5s ease;
+    }
+
+    & .prop-room__box__plane__top__lid--top.open-box {
+        transform: rotateX(-180deg);
+    }
+
+    & .prop-room__box__plane__top__lid--bottom {
+        width: 100%;
+        height: 50%;
+
+        position: absolute;
+        bottom: 0;
+        transform-origin: center bottom;
+
+        background-color: #642424;
+
+        transition: all .5s ease;
+    }
+
+    & .prop-room__box__plane__top__lid--bottom.open-box  {
+        transform: rotateX(180deg);
+    }
+
+    & .prop-room__box__plane__top__lid--right {
+        width: 40%;
+        height: 100%;
+
+        position: absolute;
+        right: 0;
+        transform-origin: center right;
+
+        background-color: #642424;
+
+        transition: all .5s ease;
+    }
+
+    & .prop-room__box__plane__top__lid--right.open-box  {
+        transform: rotateY(-180deg);
+    }
+
+    & .prop-room__box__plane__top__lid--left {
+        width: 40%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+        transform-origin: center left;
+
+        background-color: #642424;
+
+        transition: all .5s ease;
+    }
+
+    & .prop-room__box__plane__top__lid--left.open-box  {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Bottom */
+.prop-room__box__plane--bottom {
+    width: var(--box-width);
+    height: var(--box-depth);
+
+    transform: rotateX(90deg) translateZ(calc(var(--box-height) / -2));
+
+    background-color: #CF6604;
+}
+
+[data-size="medium"] {
+    --box-width: 15em;
+    --box-height: 15em;
+    --box-depth: 10em;
+}
+
+[data-size="large"] {
+    --box-width: 15em;
+    --box-height: 17em;
+    --box-depth: 17em;
+}

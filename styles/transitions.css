@@ -43,3 +43,6 @@ body:not(:has(#home:target)) .scheve-scroller {
     transform: translateY(-150vh);
 }
 
+body:not(:has(#shop:target)) .prop-room {
+    transform: translateY(-150vh);
+}

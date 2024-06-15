@@ -1,4 +1,4 @@
-/* ********** */
+/* **********
 /* PROP ROOM */
 /* ******** */
 
@@ -21,7 +21,7 @@
         rotateZ(-45deg)
         translateX(-35em)
     ;
-    
+    transition: 5s 1s ease-in-out;
 }
 
 .prop-room__box {
@@ -201,3 +201,4 @@
     --box-height: 17em;
     --box-depth: 17em;
 }
+

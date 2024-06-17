@@ -11,6 +11,7 @@ function bofesto_setup(){
 	wp_enqueue_style( 'menu', get_template_directory_uri() . '/styles/menu.css');
 	wp_enqueue_style( 'loader', get_template_directory_uri() . '/styles/loader.css');
 	wp_enqueue_style( 'transitions', get_template_directory_uri() . '/styles/transitions.css');
+	wp_enqueue_style( 'buttons', get_template_directory_uri() . '/styles/buttons.css');
 
 	wp_enqueue_style( 'popup', get_template_directory_uri() . '/styles/pop-up.css');
 

@@ -22,12 +22,19 @@ body {
 /* DE SCHEVE SCROLLER */
 /**********************/
 
+@property --sp-default {
+  syntax:"<number>";
+  inherits:true;
+  initial-value:-.825;
+}
+
 .scheve-scroller {
   /* --slides-angle:75deg; */
   --slides-angle:75deg;
   /* kan ook positief - dan is er meer ruimte tussen de slides */
   /* niet kleiner maken dan de --slide-height */
-  --slides-spacing: calc(var(--slide-height) * -.825);
+  --slides-spacing: calc(var(--slide-height) * var(--sp-default));
+  --sp-default: -.825;
   
   /* ruimte boven of links (en aan het einde van het scrollen onder of rechts) */
   --slides-margin:2em;
@@ -46,7 +53,6 @@ body {
   --slide-offset-touwtje:calc(var(--slide-width) * .1);
 }
 
-
 .scheve-scroller {
   /* vult het hele scherm */
   position:fixed;
@@ -58,7 +64,25 @@ body {
   /* wat uitsteekt zie je niet   */
   overflow:hidden;
 
-  transition: 5s 1s ease-in-out;
+  transition: 
+    --sp-default 3s -.75s ease-in-out,
+    opacity 1s ease-in-out;
+  /* will-change: transform; */
+  opacity: 1;
+}
+
+.button__container{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  
+  padding:1em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1em;
 }
 
 
@@ -161,7 +185,9 @@ body {
 }
 
 
-
+.scheve-scroller .list > *:not(li) {
+  display:none;
+}
 
 /************/
 /* EEN ITEM */
@@ -177,6 +203,7 @@ body {
   /* en tenslotte geskewYt */
   /* nb. cos() werkt niet in alle browsers */
   transform:
+    rotateY(1deg)
     skewX( calc(var(--slides-angle) * -1) )
     scaleX( cos( var(--slide-angle) ) )
     skewY( calc(var(--slide-angle) * -1) );

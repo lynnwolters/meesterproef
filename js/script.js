@@ -36,3 +36,21 @@ function toggleMenu() {
 //   div.addEventListener("mouseenter", updateTransforms);
 //   div.addEventListener("mouseleave", updateTransforms);
 // });
+
+const knopLinks = document.querySelector(".links-omdat-het-van-eva-is");
+const knopRechts = document.querySelector(".rechts-omdat-het-van-eva-is");
+
+const deList = document.querySelector(".list");
+
+function toTheLinks() {
+  const deListWidth = document.documentElement.clientWidth;
+  deList.scrollTop = deList.scrollTop - (deListWidth / 8);
+}
+
+function toTheRechts() {
+  const deListWidth = document.documentElement.clientWidth;
+  deList.scrollTop = deList.scrollTop + (deListWidth / 8);
+}
+
+knopLinks.onclick = toTheLinks;
+knopRechts.onclick = toTheRechts;

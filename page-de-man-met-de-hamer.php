@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+    <form class="button__container">
+        <button type="button" class="links-omdat-het-van-eva-is">←</button>
+        <button type="button" class="rechts-omdat-het-van-eva-is">→</button>
+    </form>
+
     <section class="scene__room">
         <div class="scene__room__plane__front"></div>
         <div class="scene__room__plane__back"></div>
@@ -50,13 +55,13 @@
     <section id="contact">
     </section>
 
-    <!-- <section class="scene__loader">
+    <section class="scene__loader">
         <div class="scene__loader__plane">
             <div class="scene__loader__plane__door">
                 <div class="scene__loader__plane__light"></div>
             </div>
         </div>
-    </section> -->
+    </section>
     
     <div class="scheve-scroller">
     <div class="indicator"></div>  
@@ -100,7 +105,7 @@
             ?>
                 <li class="item">
                     <button href="#">
-                        <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
+                        <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>" loading="eager">
                     </button>
                     <div class="data_pop-up" data-title="<?php the_title(); ?>" data-url="<?php the_permalink(); ?>" data-year="<?php echo esc_html($year); ?>" data-photographer="<?php echo esc_html($photographer); ?>" data-ontwerper="<?php echo esc_html($ontwerper); ?>" data-images='<?php echo json_encode(array_column($images, 'url')); ?>'>
                         <!-- Store image URLs in a data attribute -->

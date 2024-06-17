@@ -40,6 +40,13 @@
 /* caroussel naar boven */
 
 body:not(:has(#home:target)) .scheve-scroller {
-    transform: translateY(-150vh);
+    /* transform: translateY(-150vh); */
+    opacity: 0;
+    pointer-events: none;
+    --sp-default: -1;
+
+    transition: 
+    --sp-default 3s ease-in-out,
+    opacity .5s 1.5s ease-in-out;
 }
 

@@ -9,15 +9,12 @@ function bofesto_setup(){
 	// wp_enqueue_style( 'carrousel', get_template_directory_uri() . '/styles/carrousel.css');
 	wp_enqueue_style( 'carrousel', get_template_directory_uri() . '/styles/carrousel-update.css');
 	wp_enqueue_style( 'menu', get_template_directory_uri() . '/styles/menu.css');
-<<<<<<< HEAD
+
 	wp_enqueue_style( 'prop-room', get_template_directory_uri() . '/styles/prop-room.css');
 	wp_enqueue_style( 'custom-cursor', get_template_directory_uri() . '/styles/custom-cursor.css');
-=======
+	
 	wp_enqueue_style( 'loader', get_template_directory_uri() . '/styles/loader.css');
 	wp_enqueue_style( 'transitions', get_template_directory_uri() . '/styles/transitions.css');
-
-	wp_enqueue_style( 'popup', get_template_directory_uri() . '/styles/pop-up.css');
->>>>>>> cf688034aa13ee4c4c4d205da9d0137e06893b87
 
     wp_enqueue_script("main", get_theme_file_uri('/js/script.js'), NULL, microtime(), true);
 	wp_enqueue_script("pop-up", get_theme_file_uri('/js/pop-up.js'), NULL, microtime(), true);
@@ -25,11 +22,7 @@ function bofesto_setup(){
 
 add_action('wp_enqueue_scripts', 'bofesto_setup');
 
-<<<<<<< HEAD
-// add_filter( 'show_admin_bar', '__return_true');
-=======
 add_filter( 'show_admin_bar', '__return_false');
->>>>>>> cf688034aa13ee4c4c4d205da9d0137e06893b87
 
 // Adding theme Support
 

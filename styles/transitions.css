@@ -1,0 +1,45 @@
+#home,
+#over-ons,
+#shop,
+#contact{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* room spin transitions */
+
+@supports selector(:has(*)){
+    @media (prefers-reduced-motion: no-preference){
+        body .scene__room {
+            transform: rotateX(var(--rX,15deg)) rotateY(var(--rY, -45deg)) translateY(var(--tY,-60em));
+            transition: 2s ease-out;
+            transition-delay: 1s;
+        }
+
+        body:has(#over-ons:target) .scene__room {
+            --rX:15deg;
+            --rY:45deg;
+            --tY:-60em;
+        }
+        
+        body:has(#shop:target) .scene__room {
+            --rX:195deg;
+            --rY:-45deg;
+            --tY:60em;
+        }
+        
+        body:has(#contact:target) .scene__room {
+            --rX:15deg;
+            --rY:135deg;
+            --tY:-60em;
+        }
+    }
+}
+
+/* caroussel naar boven */
+
+body:not(:has(#home:target)) .scheve-scroller {
+    transform: translateY(-150vh);
+}
+

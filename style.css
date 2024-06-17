@@ -16,10 +16,6 @@ img {
     --menu-height: 5em;
     --menu-depth: 5em;
 
-    --room-width: 100dvw;
-    --room-height: 100dvh;
-    --room-depth: 100dvw;
-
     --slide-width: 10em;
     --slide-height: 10em;
     --slide-depth: 10em;
@@ -27,6 +23,17 @@ img {
     --box-width: 10em;
     --box-height: 10em;
     --box-depth: 10em;
+
+    --room-width: 200em;
+    --room-height: 200em;
+    --room-depth: 200em;
+
+    --primary-color: #BC2A2A;
+    --secondary-color: #863939;
+    --tertiary-color: #DC6A01;
+    --tertiary-color-dark: #2E150D;
+
+    --transition-base: .5s ease-out;
 }
 
 /* ********** */
@@ -49,7 +56,11 @@ img {
 }
 
 body {
-    background-color: #2E150D;
+    height: 100dvh;
+    width: 100dvw;
+
+    background-color: var(--tertiary-color-dark);
+    
     overflow: hidden;
 }
 
@@ -103,15 +114,19 @@ a, button {
 
 .scene__room {
     transform-style: preserve-3d;
-    transform: rotateX(15deg) rotateY(-45deg);
+    transform: 
+        rotateX(15deg) 
+        rotateY(-45deg)
+        translateY(-60em)
+        ;
 
     display: grid;
     place-items: center;
+    /* position: fixed; */
 
     border: none;
 
-    background-color: transparent;
-}
+    background-color: transparent;}
 
 .scene__room div {    
     grid-area: 1/1;
@@ -134,7 +149,7 @@ a, button {
     display: flex;
     flex-direction: column;
 
-    background-color: #BC2A2A;
+    background-color: var(--primary-color);
     opacity: 0;
 }
 
@@ -145,7 +160,7 @@ a, button {
 
     transform: rotateY(180deg) translateZ(calc(var(--room-depth) / -2));
 
-    background-color: #CF6604;
+    background-color: var(--primary-color);
 }
 
 /* Left */
@@ -155,9 +170,7 @@ a, button {
 
     transform: rotateY(90deg) translateZ(calc(var(--room-width) / -2));
 
-    padding: .8em;
-
-    background-color: #863939;
+    background-color: var(--secondary-color);
     opacity: 0;
 }
 
@@ -169,7 +182,9 @@ a, button {
     transform: rotateY(90deg) translateZ(calc(var(--room-width) / 2));
     transform-style: preserve-3d;
 
-    background-color: #2E150D;
+    position: relative;
+
+    background-color: var(--secondary-color);
 }
 
 /* Top */
@@ -179,7 +194,7 @@ a, button {
 
     transform: rotateX(-90deg) translateZ(calc(var(--room-height) / -2));
 
-    background-color: #DC6A01;
+    background-color: var(--tertiary-color);
     opacity: 0;
 }
 
@@ -190,5 +205,5 @@ a, button {
 
     transform: rotateX(90deg) translateZ(calc(var(--room-height) / -2));
 
-    background-color: #BC2A2A;
+    background-color: var(--tertiary-color);
 }

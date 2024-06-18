@@ -87,7 +87,7 @@ body {
   z-index:1000;
   
   padding:1em;
-  display:flex;
+  display:none;
   justify-content:center;
   align-items:center;
   gap:1em;

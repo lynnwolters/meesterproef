@@ -126,22 +126,13 @@ const deList = document.querySelector(".list");
 
 function toTheLinks() {
   const deListWidth = document.documentElement.clientWidth;
-  deList.scrollTop = deList.scrollTop - (deListWidth / 8);
+  deList.scrollTop = deList.scrollTop - (deListWidth / 5);
 }
 
 function toTheRechts() {
   const deListWidth = document.documentElement.clientWidth;
-  deList.scrollTop = deList.scrollTop + (deListWidth / 8);
+  deList.scrollTop = deList.scrollTop + (deListWidth / 5);
 }
 
 knopLinks.onclick = toTheLinks;
 knopRechts.onclick = toTheRechts;
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     setTimeout(function() {
-//         const scroller = document.querySelector('.scheve-scroller');
-//         if (scroller) {
-//             scroller.classList.add('shown');
-//         }
-//     }, 3000);
-// });

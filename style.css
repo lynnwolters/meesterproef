@@ -121,7 +121,6 @@ a, button {
         ;
 
     display: grid;
-    /* display: none; */
     place-items: center;
 
     border: none;

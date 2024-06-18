@@ -61,14 +61,18 @@ body {
   
   /* de list horizontaal in het midden */
   display:grid;
-  display: none;
+  /* display: none; */
   justify-content:center;
   /* wat uitsteekt zie je niet   */
   overflow:hidden;
 
-  transition: 
-    --sp-default 3s 1.25s ease-in-out,
-    opacity 1s 2s ease-in-out;
+  @media (prefers-reduced-motion: no-preference){
+      transition: 
+      --sp-default 3s 1.25s ease-in-out,
+      opacity 1s 2s ease-in-out;
+  }
+
+
 }
 
 .button__container{
@@ -91,8 +95,11 @@ body {
     border-radius: 50%;
     border: .15em solid color-mix(in srgb, white, transparent 20%);
     background-color: var(--primary-color);
-    transition: var(--transition-base);
     font-size: 1em;
+
+    @media (prefers-reduced-motion: no-preference){
+        transition: var(--transition-base);
+    }
 
     &:hover{
       background-color: var(--quaternary-color-dark);
@@ -134,8 +141,6 @@ body {
   
   height:.5em;
   
-  /* background-color:#fff6; */
-  
   background-image:linear-gradient(90deg in oklch, var(--dark), var(--quaternary-color) calc( var(--p, 0) * 100% ), transparent 0);
   animation:--ani-indicator linear both;
   animation-timeline: --scheve-scroller;
@@ -152,8 +157,6 @@ body {
     --p:1;
   }
 }
-
-
 
 /***********/
 /* DE LIST */
@@ -202,8 +205,7 @@ body {
   /* zodat je kunt scrollen in de list */
   overflow: auto;
   scrollbar-width: none;
-  
-  /* voor de indicator */
+
   scroll-timeline: --scheve-scroller;
 
   @media (max-width: 600px){
@@ -213,7 +215,6 @@ body {
 
 @media (prefers-reduced-motion:no-preference) {
   .scheve-scroller .list {
-    /* weet niet of dit fijn is - speelt een rol bij tab-ben */
     scroll-behavior:smooth;
     scroll-padding:calc( var(--slide-width) + var(--slides-margin) );
   }
@@ -233,9 +234,6 @@ body {
 /************/
 
 .scheve-scroller .item {
-  transition: .3s; 
-  /* transition-timing-function: cubic-bezier(.13,.81,.52,.98);  */
-  /* de maat */
   width: var(--slide-width);
   height: var(--slide-height);
   /* width: 10em;
@@ -246,21 +244,14 @@ body {
   /* en tenslotte geskewYt */
   /* nb. cos() werkt niet in alle browsers */
   transform:
-    rotateY(1deg)
-    skewX( calc(var(--slides-angle) * -1) )
-    scaleX( cos( var(--slide-angle) ) )
-    skewY( calc(var(--slide-angle) * -1) );
+  rotateY(1deg)
+  skewX( calc(var(--slides-angle) * -1) )
+  scaleX( cos( var(--slide-angle) ) )
+  skewY( calc(var(--slide-angle) * -1) );
 
-    /* &:hover {
-        transform:
-            skewX( calc(var(--slides-angle) * -1) )
-            scaleX( cos( var(--slide-angle) ) )
-            skewY( calc(var(--slide-angle) * -1) )
-            translateY(-2em);
-
-            outline: solid white 4px;
-            box-shadow: 0 0 3em #fff5;
-    } */
+  @media (prefers-reduced-motion: no-preference){
+      transition: var(--transition-base);
+  }
 }
 
 /* bovenkant van een item */
@@ -315,12 +306,10 @@ body {
 
   outline: solid white 0px;
 
-  transition: var(--transition-fast);
+  @media (prefers-reduced-motion: no-preference){
+   transition: var(--transition-fast);
+  }
 
-  /* &:focus-visible {
-    outline: solid white 4px;
-    box-shadow: 0 0 3em #fff5;
-  } */
 }
 
 /* de touwtjes */
@@ -397,11 +386,13 @@ body {
 /* hover/focus change li */
 .item:has(button:hover),
 .item:has(button:focus-visible) {
-    transform:
-        skewX( calc(var(--slides-angle) * -1) )
-        scaleX( cos( var(--slide-angle) ) )
-        skewY( calc(var(--slide-angle) * -1) )
-        translateY(-2em);
+    @media (prefers-reduced-motion: no-preference){
+      transform:
+      skewX( calc(var(--slides-angle) * -1) )
+      scaleX( cos( var(--slide-angle) ) )
+      skewY( calc(var(--slide-angle) * -1) )
+      translateY(-2em);
+    }
 }
 
 /* hover/focus change button */

@@ -56,3 +56,6 @@ body:not(:has(#over-ons:target)) #over-ons {
     transform: translateY(-150vh);
 }
 
+body:not(:has(#shop:target)) .prop-room {
+    transform: translateX(-150vh);
+}

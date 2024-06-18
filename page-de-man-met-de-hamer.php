@@ -20,7 +20,7 @@
             <p>Menu</p>
             <ul class="scene__menu__plane__front__submenu">
                 <li>
-                    <a class="active-link" href="#home">Home</a>
+                    <a class="active-link" href="/">Home</a>
                 </li>
                 <li>
                     <a href="#over-ons">Over Ons</a>
@@ -384,23 +384,25 @@
     <ul class="list">
         <?php
 
-            $args = array(
-                'post_type' => 'portfolio',
-                'posts_per_page' => -1,
-            );
+        $args = array(
+            'post_type' => 'portfolio',
+            'posts_per_page' => -1,
+        );
 
-            $blogposts = new WP_Query($args);
+        $blogposts = new WP_Query($args);
 
-            while ($blogposts->have_posts()) {
-                $blogposts->the_post();
+        while ($blogposts->have_posts()) {
+            $blogposts->the_post();
 
-                // Get the thumbnail ID of the current post
-                $thumbnail_id = get_post_thumbnail_id(get_the_ID());
+            // Get the thumbnail ID of the current post
+            $thumbnail_id = get_post_thumbnail_id(get_the_ID());
 
-                // Get the medium-sized image URL
-                $thumbnail = wp_get_attachment_image_src($thumbnail_id, 'medium');
-                $thumbnail_url = $thumbnail[0];
+            // Get the medium-sized image URL
+            $thumbnail = wp_get_attachment_image_src($thumbnail_id, 'medium');
+            $thumbnail_url = $thumbnail ? $thumbnail[0] : '';
 
+            // Check if the post has a thumbnail
+            if ($thumbnail_url) {
                 // Get the alt text of the thumbnail
                 $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
 
@@ -418,7 +420,7 @@
                     get_field('image_5'),
                 ];
 
-            ?>
+                ?>
                 <li class="item">
                     <button>
                         <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
@@ -427,11 +429,13 @@
                         <!-- Store image URLs in a data attribute -->
                     </div>
                 </li>
-        
-        <?php }
+                <?php
+            }
+        }
         wp_reset_query();
-        ?>   
-    </ul>
+    ?>   
+</ul>
+
     <dialog class="dialog">
         <button class="close-btn">
             <span></span>
@@ -445,5 +449,6 @@
         <div class="additional-images"></div>
     </dialog>
 </div>
+
 
 <?php get_footer(); ?>

@@ -20,10 +20,15 @@ img {
     --room-height: 200em;
     --room-depth: 200em;
 
-    --primary-color: #606060;
-    --secondary-color: #131313;
-    --tertiary-color: #2f2f2f;
+    --primary-color: #372d2A;
+    --secondary-color: #302522;
+    --tertiary-color: #483937;
     --tertiary-color-dark: #2E150D;
+
+    --quaternary-color: #C62626;
+    --quaternary-color-dark: #A31F1F;
+    --dark: #2A211B;
+    --light: #FFFFFF;
 
     --transition-base: .5s ease-out;
 
@@ -41,11 +46,11 @@ img {
 
     font-family: "Outfit", sans-serif;
     font-weight: 400;
-    letter-spacing: .2em;
-    /* text-transform: uppercase; */
-    /* text-align: center; */
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-align: center;
     line-height: 110%;
-    color: white;
+    color: var(--light);
     text-decoration: none;
 }
 
@@ -53,7 +58,7 @@ body {
     height: 100dvh;
     width: 100dvw;
 
-    background-color: var(--tertiary-color-dark);
+    background-color: var(--tertiary-color);
     
     overflow: hidden;
 }
@@ -117,11 +122,11 @@ a, button {
     display: grid;
     /* display: none; */
     place-items: center;
-    /* position: fixed; */
 
     border: none;
 
-    background-color: transparent;}
+    background-color: transparent;
+}
 
 .scene__room div {    
     grid-area: 1/1;
@@ -131,7 +136,7 @@ a, button {
 
     opacity: 1;
 
-    color: white;
+    color: var(--light);
 }
 
 /* Front */

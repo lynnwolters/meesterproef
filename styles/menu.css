@@ -1,182 +1,158 @@
-/* ***** */
-/* MENU */
-/* *** */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-.scene {
-    transform-style: preserve-3d;
-
-    display: flex;
-    justify-content: end;
-    align-items: start;
-
-    padding: 6em 4em;
+*, *::before, *::after {
+	box-sizing:border-box;
+	
+	font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.scene__menu {
-    position: absolute;
 
-    top: 7.5vh;
-    right: 7.5vh;
-    transform-style: preserve-3d;
-    transform: rotateX(15deg) rotateY(-45deg);
+nav {
+	--menu-height:5rem;
+	--menu-depth:5rem;
+	--menu-width:14rem;
+	
+	--menu-bg: var(--quaternary-color);
+	--menu-bg-dak: var(--dark);
+	--menu-bg-zijkant:var(--light);
+	
+	position:absolute;
+	right:5em;
+	top:5em;
+	background-color:var(--menu-bg);
+	
+	display:grid;
+	align-items:start;
 
-    display: grid;
-    place-items: center;
-
-    border: none;
-
-    background-color: transparent;
-
-    z-index: 100;
+    z-index: 1000;
+	
+	transform-style:preserve-3d;
+    transform-origin:right top;
+	transform:
+		rotateX(-15deg)
+		rotateY(45deg);
 }
 
-@media (max-width: 600px){
-    .scene__menu{
-        top: 10vh;
-        right: 2em;
-    }
+/* dakje */
+nav::before {
+	content:"";
+	
+	position:absolute;
+	bottom:100%;
+	left:0;
+	
+	width:var(--menu-width);
+	height:var(--menu-depth);
+	background-color:var(--menu-bg-dak);
+	
+	transform-origin:bottom;
+	transform:rotateX(90deg);
 }
 
-.scene__menu div {    
-    grid-area: 1/1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* zijkant */
+nav::after {
+	content:"";
+	
+	position:absolute;
+	right:100%;
+	top:0;
+	
+	width:var(--menu-depth);
+	height:100%;
+	background-color:var(--menu-bg-zijkant);
+    background-image: url("http://man-met-de-hamer.local/wp-content/uploads/2024/06/logo-mmdh.png");
+    background-size: 3.5em;
+    background-repeat: no-repeat;
+    background-position: center .75em;
+	
+	transform-origin:right;
+	transform:rotateY(-90deg);
 }
 
-/* Front */
-.scene__menu__plane__front {
-    width: var(--menu-width);
-    height: var(--menu-height);
-
-    position: relative;
-    transform: translateZ(calc(var(--menu-depth) / -2));
-
-    display: flex;
-    flex-direction: column;
-
-    background-color: var(--primary-color);
+/* button en de links */
+nav > button, nav > a {
+	grid-area:1/1;
+	padding:0;
+	
+	display:grid;
+	place-items:center;
+	height:var(--menu-height);
+	width:var(--menu-width);
+	
+	-webkit-appearence:none;
+	appearence:none;
+	background:none;
+	border:none;
+	
+	text-transform:uppercase;
+	font-family: "Outfit", sans-serif;
+	font-size:1.6em;
+	color:white;
 }
 
-.scene__menu__plane__front p {
-    font-size: 1.6em;
+/* button */
+nav button {
+	z-index:5;
+	background-color:var(--menu-bg);
 }
 
-.scene__menu__plane__front__submenu {
-    width: 100%;
-    height: 0;
-    
-    position: absolute;
-    left: 0;
-    top: 5em;
 
-    display: flex;
-    flex-direction: column;
+/* links */
 
-    background-color: var(--primary-color);
-    
-    transition: height .5s ease;
+nav a {
+	opacity:0;
+	
+	transition:
+		margin-top .5s,
+		opacity .25s;
 }
 
-.scene__menu__plane__front__submenu li {
-    height: 6em;
-    opacity: 0;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+nav a:hover {
+    background-color: var(--quaternary-color-dark);
+}å
 
-    list-style: none;
-
-    transition: opacity .3s ease;
+nav a:nth-of-type(1) {
+	z-index:4;
 }
 
-.scene__menu__plane__front__submenu li:hover {
-    background-color: color-mix(in srgb, #A62828, black 10%);
+nav a:nth-of-type(2) {
+	z-index:3;
 }
 
-.scene__menu__plane__front__submenu li a {
-    font-size: 1.6em;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+nav a:nth-of-type(3) {
+	z-index:2;
 }
 
-.scene__menu__plane__front__submenu.toggle-menu {
-    height: 20em;
+nav a:nth-of-type(4) {
+	z-index:1;
 }
 
-.scene__menu__plane__front__submenu.toggle-menu li {
-    opacity: 1;
+
+/*  nav open */
+nav.open a {
+	opacity:1;
+	
+	transition:
+		margin-top .5s,
+		opacity .25s .25s;
 }
 
-/* Back */
-.scene__menu__plane__back {
-    width: var(--menu-width);
-    height: var(--menu-height);
-
-    transform: rotateY(180deg) translateZ(calc(var(--menu-depth) / -2));
+nav.open a:nth-of-type(1) {
+	margin-top:calc(var(--menu-height) * 1);
 }
 
-/* Left */
-.scene__menu__plane__left {
-    width: var(--menu-depth);
-    height: var(--menu-height);
-
-    position: relative;
-    transform: rotateY(90deg) translateZ(calc(var(--menu-width) / -2));
-
-    padding: .8em;
-
-    background-color: white;
+nav.open a:nth-of-type(2) {
+	margin-top:calc(var(--menu-height) * 2);
 }
 
-.scene__menu__plane__left img {
-    width: 100%;
+nav.open a:nth-of-type(3) {
+	margin-top:calc(var(--menu-height) * 3);
 }
 
-.scene__menu__plane__left__extension {
-    width: 100%;
-    height: 0;
-    
-    position: absolute;
-    left: 0;
-    top: 5em;
-
-    background-color: white;
-    
-    transition: height .5s ease;
+nav.open a:nth-of-type(4) {
+	margin-top:calc(var(--menu-height) * 4);
 }
 
-.scene__menu__plane__left__extension.toggle-menu {
-    height: 20em;
-}
-
-/* Right */
-.scene__menu__plane__right {
-    width: var(--menu-depth);
-    height: var(--menu-height);
-
-    transform: rotateY(-90deg) translateZ(calc(var(--menu-width) / -2));
-}
-
-/* Top */
-.scene__menu__plane__top {
-    width: var(--menu-width);
-    height: var(--menu-depth);
-
-    transform: rotateX(-90deg) translateZ(calc(var(--menu-height) / -2));
-
-    background-color: var(--tertiary-color);
-}
-
-/* Bottom */
-.scene__menu__plane__bottom {
-    width: var(--menu-width);
-    height: var(--menu-depth);
-
-    transform: rotateX(90deg) translateZ(calc(var(--menu-height) / -2));
-}

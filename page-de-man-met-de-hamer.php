@@ -14,34 +14,13 @@
         <div class="scene__room__plane__bottom"></div>
     </section>
 
-    <!-- menu button -->
-    <button class="scene__menu">
-        <div class="scene__menu__plane__front">
-            <p>Menu</p>
-            <ul class="scene__menu__plane__front__submenu">
-                <li>
-                    <a class="active-link" href="#home">Home</a>
-                </li>
-                <li>
-                    <a href="#over-ons">Over Ons</a>
-                </li>
-                <li>
-                    <a href="#shop">Shop</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div class="scene__menu__plane__back"></div>
-        <div class="scene__menu__plane__left">
-            <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/logo-mmdh.png" alt="Het logo van De Man Met De Hamer">
-            <div class="scene__menu__plane__left__extension"></div>
-        </div>
-        <div class="scene__menu__plane__right"></div>
-        <div class="scene__menu__plane__top"></div>
-        <div class="scene__menu__plane__bottom"></div>
-    </button>
+    <nav>
+        <button>Menu</button>
+        <a href="#home">Home</a>
+        <a href="#over-ons">Over ons</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
     <section id="home">
     </section>
@@ -406,19 +385,19 @@
                 // Get the alt text of the thumbnail
                 $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
 
-                // Get the custom field 'year' from ACF
-                $year = get_field('year');
-                $photographer = get_field('Photographer');
-                $ontwerper = get_field('Ontwerper');
+                    // Get the custom field 'year' from ACF
+                    $year = get_field('year');
+                    $photographer = get_field('Photographer');
+                    $ontwerper = get_field('Ontwerper');
 
-                // Get the multiple image fields
-                $images = [
-                    get_field('image'),
-                    get_field('Image_2'),
-                    get_field('image_3'),
-                    get_field('image_4'),
-                    get_field('image_5'),
-                ];
+                    // Get the multiple image fields
+                    $images = [
+                        get_field('image'),
+                        get_field('Image_2'),
+                        get_field('image_3'),
+                        get_field('image_4'),
+                        get_field('image_5'),
+                    ];
 
                 ?>
                 <li class="item">

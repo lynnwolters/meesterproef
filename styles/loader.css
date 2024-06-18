@@ -20,6 +20,15 @@
 }
 
 .scene__loader__plane{
+    grid-area: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+
+    color: var(--light);
+
     width: var(--room-depth);
     height: var(--room-height);
 
@@ -58,7 +67,7 @@
     }
 
     &::after{
-        background-color:black;
+        background-color:var(--dark);
 
 		top: -2.5px;
 		left: -1px;

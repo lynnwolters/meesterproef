@@ -1,14 +1,15 @@
-const menu = document.querySelector(".scene__menu");
+// ************ //
+// TOGGLE MENU //
+// ********** //
 
-menu.addEventListener("click", toggleMenu);
+const deNav = document.querySelector("nav");
+const navButton = document.querySelector("nav button");
 
-function toggleMenu() {
-    const submenu = document.querySelector(".scene__menu__plane__front__submenu");
-    const leftPlaneExtension = document.querySelector(".scene__menu__plane__left__extension");
-    submenu.classList.toggle("toggle-menu");
-    leftPlaneExtension.classList.toggle("toggle-menu");
+function toggleNav() {
+	deNav.classList.toggle("open");
 }
 
+navButton.onclick = toggleNav;
 
 // ***************** //
 // PROP ROOM SCROLL //

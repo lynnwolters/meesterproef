@@ -1,42 +1,29 @@
 .scene__loader{
+    --room-width: 100dvw;
+    --room-height: 100dvh;
+    --room-depth: 100dvw;
+
 	--deur-hoogte:10em;
 	--deur-breedte:6em;
 	--deur-marge:12em;
 	
 	--licht-breedte:120em;
 	
-	--kamer-hoek:45deg;
+	--kamer-hoek:30deg;
 	--kamer-middelpunt:45%;
 
     position: absolute;
 
     transform-style: preserve-3d;
-    transform: rotateX(15deg) rotateY(-45deg);
-
-    display: grid;
-    place-items: end;
-
-    border: none;
-
-    background-color: transparent;
 
 	pointer-events: none;
 }
 
 .scene__loader__plane{
-    grid-area: 1/1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 1;
-
-    color: white;
-
     width: var(--room-depth);
     height: var(--room-height);
 
-    transform: rotateY(90deg) translateZ(calc(var(--room-width) / 2));
+    transform: translateZ(50vw) rotateX(15deg) rotateY(45deg) translateX(50vw) translateY(-45vh);
     transform-style: preserve-3d;
 }
 
@@ -65,16 +52,14 @@
 
     &::before{
         background-color:var(--tertiary-color);
-	
-        /* transform: skewY( calc(var(--kamer-hoek) * 1) ); */
-        
+
         z-index:1;
     }
 
     &::after{
         background-color:black;
 
-		top: -1px;
+		top: -2.5px;
 		left: -1px;
 
 		height:calc(var(--deur-hoogte) + 1px);

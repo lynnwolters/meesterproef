@@ -13,7 +13,7 @@ html {
 body {
   min-height:100%;
   margin:0;
-  background-image:linear-gradient(in oklch, hotpink,lightskyblue);
+  /* background-image:linear-gradient(in oklch, hotpink,lightskyblue); */
   
   timeline-scope: --scheve-scroller;
 }
@@ -34,14 +34,14 @@ body {
   
   --slide-width:clamp(10em, 15vw, 20em);
   --slide-height:clamp(15em, 22.5vw, 30em);
-  --slide-depth:.5em;
+  --slide-depth:.4em;
   
   --slide-angle:14deg;
   --slide-depth-angle:60deg;
   
-  --slide-kleur-bovenkant:White;
-  --slide-kleur-zijkant:Orange;
-  --slide-kleur-touw:#fff8;
+  --slide-kleur-bovenkant: var(--light);
+  --slide-kleur-zijkant: var(--quaternary-color);
+  --slide-kleur-touw: var(--light);
   
   --slide-offset-touwtje:calc(var(--slide-width) * .1);
 }
@@ -75,9 +75,9 @@ body {
   
   height:.5em;
   
-  background-color:#fff6;
+  /* background-color:#fff6; */
   
-  background-image:linear-gradient(90deg in oklch, black, #BC2A2A calc( var(--p, 0) * 100% ), transparent 0);
+  background-image:linear-gradient(90deg in oklch, var(--dark), var(--quaternary-color) calc( var(--p, 0) * 100% ), transparent 0);
   animation:--ani-indicator linear both;
   animation-timeline: --scheve-scroller;
 }
@@ -248,8 +248,8 @@ body {
   background-image:
     linear-gradient(
       90deg,
-      var(--slide-kleur-touw) 2px,
-      transparent 0 calc(100% - 2px),
+      var(--slide-kleur-touw) 1px,
+      transparent 0 calc(100% - 1px),
       var(--slide-kleur-touw)
     );
   

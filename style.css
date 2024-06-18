@@ -20,10 +20,13 @@ img {
     --room-height: 200em;
     --room-depth: 200em;
 
-    --primary-color: #BC2A2A;
-    --secondary-color: #863939;
-    --tertiary-color: #DC6A01;
-    --tertiary-color-dark: #2E150D;
+    --primary-color: #372d2A;
+    --secondary-color: #302522;
+    --tertiary-color: #483937;
+    --quaternary-color: #C62626;
+    --quaternary-color-dark: #A31F1F;
+    --dark: #2A211B;
+    --light: #FFFFFF;
 
     --transition-base: .5s ease-out;
 }
@@ -39,11 +42,11 @@ img {
 
     font-family: "Outfit", sans-serif;
     font-weight: 400;
-    letter-spacing: .2em;
+    letter-spacing: .1em;
     text-transform: uppercase;
     text-align: center;
     line-height: 110%;
-    color: white;
+    color: var(--light);
     text-decoration: none;
 }
 
@@ -51,7 +54,7 @@ body {
     height: 100dvh;
     width: 100dvw;
 
-    background-color: var(--tertiary-color-dark);
+    background-color: var(--tertiary-color);
     
     overflow: hidden;
 }
@@ -114,11 +117,11 @@ a, button {
 
     display: grid;
     place-items: center;
-    /* position: fixed; */
 
     border: none;
 
-    background-color: transparent;}
+    background-color: transparent;
+}
 
 .scene__room div {    
     grid-area: 1/1;
@@ -128,7 +131,7 @@ a, button {
 
     opacity: 1;
 
-    color: white;
+    color: var(--light);
 }
 
 /* Front */

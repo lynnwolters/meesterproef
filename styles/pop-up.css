@@ -8,7 +8,7 @@
     width: 80dvw;
     height: 80dvh;
     transform: translate(10dvw, 10dvh);
-    background-color: color-mix(in srgb, black, transparent 50%);
+    background-color: color-mix(in srgb, var(--dark), transparent 50%);
     border: none;
 
     padding: var(--dialog-padding-size);
@@ -27,12 +27,12 @@ dialog[open]{
     z-index: 99;
     cursor: pointer;
     border-radius: 50%;
-    border: .15em solid color-mix(in srgb, white, transparent 20%);
+    border: .15em solid color-mix(in srgb, var(--light), transparent 20%);
     background-color: transparent;
     transition: var(--transition-base);
 
     &:hover{
-        background-color: black;
+        background-color: var(--dark);
 
         span{
             rotate: 1turn;
@@ -52,7 +52,7 @@ dialog[open]{
         &::after{
             content: '';
             position: absolute;
-            background-color: color-mix(in srgb, white, transparent 20%);
+            background-color: color-mix(in srgb, var(--light), transparent 20%);
             height: 50%;
             width: .15em;
             border-radius: 1em;

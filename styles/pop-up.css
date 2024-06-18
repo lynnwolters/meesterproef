@@ -10,8 +10,6 @@
     transform: translate(10dvw, 10dvh);
     background-color: color-mix(in srgb, var(--dark), transparent 50%);
     border: none;
-
-    /* padding: var(--dialog-padding-size); */
 }
 
 dialog[open]{
@@ -29,7 +27,10 @@ dialog[open]{
     border-radius: 50%;
     border: .15em solid color-mix(in srgb, var(--light), transparent 20%);
     background-color: transparent;
-    transition: var(--transition-base);
+    
+    @media (prefers-reduced-motion: no-preference){
+        transition: var(--transition-base);
+    }
 
     &:hover{
         background-color: var(--dark);
@@ -46,7 +47,10 @@ dialog[open]{
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: var(--transition-base);
+
+        @media (prefers-reduced-motion: no-preference){
+            transition: var(--transition-base);
+        }
 
         &::before,
         &::after{
@@ -76,7 +80,10 @@ dialog[open]{
 
 .dialog a{
     text-decoration: 2px solid underline;
-    transition: var(--transition-base);
+
+    @media (prefers-reduced-motion: no-preference){
+        transition: var(--transition-base);
+    }
 
     &:hover{
         text-decoration: 2px double underline;

@@ -15,14 +15,18 @@
 
 /* Prop room */
 .prop-room {
+    position: absolute;
+
     transform-style: preserve-3d;
     transform: 
         rotateX(75deg)
         rotateZ(-45deg)
         translateX(-35em)
     ;
-    transition: 5s 1s ease-in-out;
-    position: absolute;
+
+    @media (prefers-reduced-motion: no-preference){
+        transition: 5s 1s ease-in-out;
+    }
 }
 
 .prop-room__box {
@@ -122,7 +126,9 @@
 
         background-color: var(--dark);
 
-        transition: all .5s ease;
+        @media (prefers-reduced-motion: no-preference){
+            transition: var(--transition-base);
+        }
     }
 
     & .prop-room__box__plane__top__lid--top.open-box {
@@ -139,7 +145,9 @@
 
         background-color: var(--dark);
 
-        transition: all .5s ease;
+        @media (prefers-reduced-motion: no-preference){
+            transition: var(--transition-base);
+        }
     }
 
     & .prop-room__box__plane__top__lid--bottom.open-box  {
@@ -156,7 +164,9 @@
 
         background-color: var(--dark);
 
-        transition: all .5s ease;
+        @media (prefers-reduced-motion: no-preference){
+            transition: var(--transition-base);
+        }
     }
 
     & .prop-room__box__plane__top__lid--right.open-box  {
@@ -173,7 +183,9 @@
 
         background-color: var(--dark);
 
-        transition: all .5s ease;
+        @media (prefers-reduced-motion: no-preference){
+            transition: var(--transition-base);
+        }
     }
 
     & .prop-room__box__plane__top__lid--left.open-box  {

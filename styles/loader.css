@@ -54,6 +54,7 @@
         background-color:var(--tertiary-color);
 
         z-index:1;
+        animation: opacity-ani .1s 2s forwards;
     }
 
     &::after{
@@ -74,11 +75,21 @@
 }
 
 @keyframes deur {
+    99%{
+        opacity: 1;
+    }
 	100% {
 		transform:
 			skewY(0);
 		background-color: var(--secondary-color);
+        opacity: 0;
 	}
+}
+
+@keyframes opacity-ani {
+    to {
+        opacity: 0;
+    }
 }
 
 .scene__loader__plane__light{

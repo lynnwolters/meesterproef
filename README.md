@@ -1,6 +1,6 @@
 # Meesterproef
 
-Welkom bij de repository van de website van De Man met de Hamer. In deze readme vind je algemene informatie over de bouw van het project en in de wiki lees je over het concept, design en development proces.
+Welkom bij de repository van de website van De Man met de Hamer. In deze README vind je algemene informatie over de bouw van het project en in de Wiki lees je over het concept, design en development proces.
 
 ![design](https://github.com/lynnwolters/meesterproef/assets/47858242/750b0fd0-6e1a-4f53-8ee9-4527448060bf)
 

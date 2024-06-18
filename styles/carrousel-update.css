@@ -321,7 +321,7 @@ body {
 }
 
 .truss-2 {
-    top: -41.8em;
+    top: -49em;
 }
 
 @media (max-width: 600px) {
@@ -332,12 +332,12 @@ body {
 
     .truss-1 {
         width: 80em;
-        top: 7em;
+        top: 4em;
     }
 
     .truss-2 {
         width: 80em;
-        top: -24em;
+        top: -28.5em;
     }
 }
 

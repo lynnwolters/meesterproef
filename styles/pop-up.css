@@ -101,6 +101,7 @@ dialog[open]{
 
 .additional-info{
     display: flex;
+    gap: 1em;
 }
 
 .data_pop-up {

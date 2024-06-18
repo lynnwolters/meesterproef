@@ -92,9 +92,13 @@
     height: var(--box-height);
 
     position: relative;
-    transform: rotateY(90deg) translateZ(calc(var(--box-width) / -2));
+    transform: rotateY(-90deg) translateZ(calc(var(--box-width) / 2));
 
     background-color: var(--light);
+}
+
+.prop-room__box__plane--left p {
+    color: var(--dark);
 }
 
 /* Right */
@@ -203,13 +207,19 @@
     background-color: var(--quaternary-color);
 }
 
-[data-size="medium"] {
+[data-size="Klein"] {
+    --box-width: 10em;
+    --box-height: 10em;
+    --box-depth: 10em;
+}
+
+[data-size="Medium"] {
     --box-width: 15em;
     --box-height: 15em;
     --box-depth: 10em;
 }
 
-[data-size="large"] {
+[data-size="Groot"] {
     --box-width: 15em;
     --box-height: 17em;
     --box-depth: 17em;

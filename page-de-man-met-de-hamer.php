@@ -432,20 +432,41 @@
 <section class="prop-room">
         <?php
             $args = array(
-                'post_type' => 'portfolio',
+                'post_type' => 'props',
                 'posts_per_page' => 30,
             );
 
             $blogposts = new WP_Query($args);
 
-            while ($blogposts->have_posts()) {
-                $blogposts->the_post();
+        while ($blogposts->have_posts()) {
+            $blogposts->the_post();
+
+            // Get the thumbnail ID of the current post
+            $thumbnail_id = get_post_thumbnail_id(get_the_ID());
+
+            // Get the medium-sized image URL
+            $thumbnail = wp_get_attachment_image_src($thumbnail_id, 'medium');
+            $thumbnail_url = $thumbnail ? $thumbnail[0] : '';
+
+            // Check if the post has a thumbnail
+            if ($thumbnail_url) {
+                // Get the alt text of the thumbnail
+                $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+
+                    // Get the custom field 'year' from ACF
+                    $prijs = get_field('prijs');
+                    $formaatDoos = get_field('formaat_doos');
+
         ?>
 
-        <div class="prop-room__box" data-size="medium" >
-            <div class="prop-room__box__plane prop-room__box__plane--front"></div>
+        <div class="prop-room__box" data-size="<?php echo esc_html($formaatDoos); ?>" >
+            <div class="prop-room__box__plane prop-room__box__plane--front">
+                <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
+            </div>
             <div class="prop-room__box__plane prop-room__box__plane--back"></div>
-            <div class="prop-room__box__plane prop-room__box__plane--left"></div>
+            <div class="prop-room__box__plane prop-room__box__plane--left">
+                <p><?php echo esc_html($prijs); ?></p>
+            </div>
             <div class="prop-room__box__plane prop-room__box__plane--right"></div>
             <div class="prop-room__box__plane prop-room__box__plane--top">
                 <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--top"></div>
@@ -456,7 +477,9 @@
             <div class="prop-room__box__plane prop-room__box__plane--bottom"></div>
             </div>
 
-        <?php }
+        <?php 
+            }    
+         }
             wp_reset_query();
         ?>
     </section>

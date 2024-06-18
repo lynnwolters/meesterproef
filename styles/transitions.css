@@ -39,10 +39,14 @@
 
 /* caroussel naar boven */
 
-body:not(:has(#home:target)) .scheve-scroller {
+/* body:not(:has(#home:target)) .scheve-scroller {
+    transform: translateY(-150vh);
+} */
+
+body:has(#shop:target) .scheve-scroller {
     transform: translateY(-150vh);
 }
 
 body:not(:has(#shop:target)) .prop-room {
-    transform: translateY(-150vh);
+    transform: translateX(-150vh);
 }

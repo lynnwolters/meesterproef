@@ -22,6 +22,7 @@
         translateX(-35em)
     ;
     transition: 5s 1s ease-in-out;
+    position: absolute;
 }
 
 .prop-room__box {

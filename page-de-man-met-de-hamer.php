@@ -15,7 +15,7 @@
             <p>Menu</p>
             <ul class="scene__menu__plane__front__submenu">
                 <li>
-                    <a class="active-link" href="#home">Home</a>
+                    <a class="active-link" href="/">Home</a>
                 </li>
                 <li>
                     <a href="#over-ons">Over Ons</a>
@@ -142,7 +142,7 @@
                 $blogposts->the_post();
         ?>
 
-        <ul class="prop-room__box" data-size="medium" >
+        <div class="prop-room__box" data-size="medium" >
             <div class="prop-room__box__plane prop-room__box__plane--front"></div>
             <div class="prop-room__box__plane prop-room__box__plane--back"></div>
             <div class="prop-room__box__plane prop-room__box__plane--left"></div>
@@ -154,7 +154,7 @@
                 <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--left"></div>
             </div>
             <div class="prop-room__box__plane prop-room__box__plane--bottom"></div>
-        </ul>
+            </div>
 
         <?php }
             wp_reset_query();

@@ -23,6 +23,7 @@ nav {
 	right:5em;
 	top:5em;
 	background-color:var(--menu-bg);
+    scale: 0.8;
 	
 	display:grid;
 	align-items:start;
@@ -34,6 +35,11 @@ nav {
 	transform:
 		rotateX(-15deg)
 		rotateY(45deg);
+
+    @media (max-width: 600px){
+        right: 2.5em;
+        top: 2em;
+    }
 }
 
 /* dakje */

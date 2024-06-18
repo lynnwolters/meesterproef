@@ -137,11 +137,11 @@ function toTheRechts() {
 knopLinks.onclick = toTheLinks;
 knopRechts.onclick = toTheRechts;
 
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        const scroller = document.querySelector('.scheve-scroller');
-        if (scroller) {
-            scroller.classList.add('shown');
-        }
-    }, 3000);
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     setTimeout(function() {
+//         const scroller = document.querySelector('.scheve-scroller');
+//         if (scroller) {
+//             scroller.classList.add('shown');
+//         }
+//     }, 3000);
+// });

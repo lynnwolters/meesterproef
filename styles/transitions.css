@@ -52,6 +52,10 @@ body:not(:has(#home:target)) .scheve-scroller {
     opacity .5s 1.5s ease-in-out;
 }
 
+body:not(:has(#home:target)) .button__container {
+    display: none;
+}
+
 body:not(:has(#over-ons:target)) #over-ons {
     transform: translateY(-150vh);
 }

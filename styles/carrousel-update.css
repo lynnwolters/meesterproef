@@ -39,11 +39,8 @@ body {
   /* ruimte boven of links (en aan het einde van het scrollen onder of rechts) */
   --slides-margin:2em;
   
-  /* --slide-width:clamp(10em, 15vw, 20em);
-  --slide-height:clamp(15em, 22.5vw, 30em); */
-
-  --slide-width:15em;
-  --slide-height:25em;
+  --slide-width:clamp(10em, 15vw, 20em);
+  --slide-height:clamp(15em, 22.5vw, 30em);
 
   --slide-depth:.5em;
   
@@ -64,19 +61,14 @@ body {
   
   /* de list horizontaal in het midden */
   display:grid;
+  display: none;
   justify-content:center;
   /* wat uitsteekt zie je niet   */
   overflow:hidden;
 
-  opacity: 0;
-
   transition: 
-    --sp-default 3s -.75s ease-in-out,
-    opacity 1s ease-in-out;
-
-  &.shown{
-    opacity: 1;
-  }
+    --sp-default 3s 1.25s ease-in-out,
+    opacity 1s 2s ease-in-out;
 }
 
 .button__container{
@@ -98,27 +90,33 @@ body {
     cursor: pointer;
     border-radius: 50%;
     border: .15em solid color-mix(in srgb, white, transparent 20%);
-    background-color: transparent;
+    background-color: var(--primary-color);
     transition: var(--transition-base);
     font-size: 1em;
 
     &:hover{
-      background-color: var(--secondary-color);
+      background-color: var(--quaternary-color-dark);
+    }
+
+    &:active{
+      background-color: var(--quaternary-color);
     }
 
     &:first-of-type{
       &:active{
-        background-color: var(--primary-color);
         transform: translateX(-.5em);
       }
     }
 
     &:last-of-type{
       &:active{
-        background-color: var(--primary-color);
         transform: translateX(.5em);
       }
     }
+  }
+
+  @media (max-width: 800px){
+    display: none;
   }
 }
 
@@ -207,6 +205,10 @@ body {
   
   /* voor de indicator */
   scroll-timeline: --scheve-scroller;
+
+  @media (max-width: 600px){
+    transform: translateY(3em) skewX( var(--slides-angle) );
+  }
 }
 
 @media (prefers-reduced-motion:no-preference) {
@@ -311,6 +313,10 @@ body {
   border: none;
   z-index: 1;
 
+  outline: solid white 0px;
+
+  transition: var(--transition-fast);
+
   /* &:focus-visible {
     outline: solid white 4px;
     box-shadow: 0 0 3em #fff5;
@@ -382,23 +388,6 @@ body {
 
 .truss-2 {
     top: -49em;
-}
-
-@media (max-width: 600px) {
-    .scheve-scroller {
-        --slide-width:10em;
-        --slide-height:15em;
-    }
-
-    .truss-1 {
-        width: 80em;
-        top: 4em;
-    }
-
-    .truss-2 {
-        width: 80em;
-        top: -28.5em;
-    }
 }
 
 /* ****** */

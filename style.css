@@ -30,6 +30,7 @@ img {
     --dark: #2A211B;
     --light: #FFFFFF;
 
+    --transition-fast: .2s ease-out;
     --transition-base: .5s ease-out;
 
     --page-transition: 2s 1s ease-in-out;

@@ -22,7 +22,7 @@
             --rY:45deg;
             --tY:-20em;
 
-            --primary-color: #2E150D;
+            /* --primary-color: #2E150D; */
         }
         
         body:has(#shop:target) .scene__room {

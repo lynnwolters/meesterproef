@@ -1,5 +1,5 @@
 #over-ons {
-    --text-height: 90vh;
+    --text-height: 80vh;
 
     /* background-color: #fff5; */
     width: 100%;
@@ -10,10 +10,18 @@
     /* transform: translateY(10em); */
 
     transition: var(--page-transition);
-}
 
-#over-ons p {
-    margin-top: 1em;
+    h2 {
+        margin-bottom: .5em;
+    }
+
+    a {
+        display: block;
+
+        &:hover, &:focus-visible {
+            background-color: #fff5;
+        }
+    }
 }
 
 /* ******************* */
@@ -23,7 +31,7 @@
 .vrienden-text {
     /* background-color: #0006; */
     max-width: 40em;
-    height: 80vh;
+    height: var(--text-height);
     font-size: 2em;
     overflow-y: scroll;
     margin-top: 5em;
@@ -36,8 +44,12 @@
     color: var(--tertiary-color);
 }
 
-.vrienden-text h2 {
+.vrienden-text h3 {
     margin-top: 1em;
+}
+
+.vrienden-text li p {
+    margin: 0;
 }
 
 /* ********* */

@@ -20,7 +20,9 @@
         body:has(#over-ons:target) .scene__room {
             --rX:15deg;
             --rY:45deg;
-            --tY:-60em;
+            --tY:-20em;
+
+            /* --primary-color: #2E150D; */
         }
         
         body:has(#shop:target) .scene__room {
@@ -48,5 +50,9 @@ body:not(:has(#home:target)) .scheve-scroller {
     transition: 
     --sp-default 3s ease-in-out,
     opacity .5s 1.5s ease-in-out;
+}
+
+body:not(:has(#over-ons:target)) #over-ons {
+    transform: translateY(-150vh);
 }
 

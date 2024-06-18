@@ -20,12 +20,14 @@ img {
     --room-height: 200em;
     --room-depth: 200em;
 
-    --primary-color: #BC2A2A;
-    --secondary-color: #863939;
-    --tertiary-color: #DC6A01;
+    --primary-color: #606060;
+    --secondary-color: #131313;
+    --tertiary-color: #2f2f2f;
     --tertiary-color-dark: #2E150D;
 
     --transition-base: .5s ease-out;
+
+    --page-transition: 2s 1s ease-in-out;
 }
 
 /* ********** */
@@ -40,8 +42,8 @@ img {
     font-family: "Outfit", sans-serif;
     font-weight: 400;
     letter-spacing: .2em;
-    text-transform: uppercase;
-    text-align: center;
+    /* text-transform: uppercase; */
+    /* text-align: center; */
     line-height: 110%;
     color: white;
     text-decoration: none;

@@ -8,6 +8,7 @@ function bofesto_setup(){
 
 	// wp_enqueue_style( 'carrousel', get_template_directory_uri() . '/styles/carrousel.css');
 	wp_enqueue_style( 'carrousel', get_template_directory_uri() . '/styles/carrousel-update.css');
+	wp_enqueue_style( 'overons', get_template_directory_uri() . '/styles/over-ons.css');
 	wp_enqueue_style( 'menu', get_template_directory_uri() . '/styles/menu.css');
 	wp_enqueue_style( 'loader', get_template_directory_uri() . '/styles/loader.css');
 	wp_enqueue_style( 'transitions', get_template_directory_uri() . '/styles/transitions.css');

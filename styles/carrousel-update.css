@@ -39,15 +39,19 @@ body {
   /* ruimte boven of links (en aan het einde van het scrollen onder of rechts) */
   --slides-margin:2em;
   
-  --slide-width:clamp(10em, 15vw, 20em);
-  --slide-height:clamp(15em, 22.5vw, 30em);
+  /* --slide-width:clamp(10em, 15vw, 20em);
+  --slide-height:clamp(15em, 22.5vw, 30em); */
+
+  --slide-width:15em;
+  --slide-height:25em;
+
   --slide-depth:.5em;
   
   --slide-angle:14deg;
   --slide-depth-angle:60deg;
   
-  --slide-kleur-bovenkant:White;
-  --slide-kleur-zijkant:Orange;
+  --slide-kleur-bovenkant: var(--tertiary-color);
+  --slide-kleur-zijkant:var(--primary-color);
   --slide-kleur-touw:#fff8;
   
   --slide-offset-touwtje:calc(var(--slide-width) * .1);
@@ -128,7 +132,7 @@ body {
   top:0;
   left:0;
   right:0;
-  z-index:1;
+  z-index:10;
   
   height:.5em;
   
@@ -227,9 +231,13 @@ body {
 /************/
 
 .scheve-scroller .item {
+  transition: .3s; 
+  /* transition-timing-function: cubic-bezier(.13,.81,.52,.98);  */
   /* de maat */
   width: var(--slide-width);
   height: var(--slide-height);
+  /* width: 10em;
+  height: 20em; */
 
   /* een slide wordt terug geskewXt - om de skew van de list te compenseren */
   /* dan een stukje geScaled - om het uitrekken door skewY te compenseren */
@@ -240,6 +248,17 @@ body {
     skewX( calc(var(--slides-angle) * -1) )
     scaleX( cos( var(--slide-angle) ) )
     skewY( calc(var(--slide-angle) * -1) );
+
+    /* &:hover {
+        transform:
+            skewX( calc(var(--slides-angle) * -1) )
+            scaleX( cos( var(--slide-angle) ) )
+            skewY( calc(var(--slide-angle) * -1) )
+            translateY(-2em);
+
+            outline: solid white 4px;
+            box-shadow: 0 0 3em #fff5;
+    } */
 }
 
 /* bovenkant van een item */
@@ -257,7 +276,7 @@ body {
   
   transform-origin:bottom;
   transform:skewX( var(--slide-depth-angle) );
-} 
+}
 
 /* zijkant van een item */
 .scheve-scroller .item::after {
@@ -278,9 +297,6 @@ body {
     /* nb. tan() werkt niet in alle browsers */
 } 
 
-
-
-
 /***************/
 /* DE TOUWTJES */
 /***************/
@@ -293,6 +309,12 @@ body {
   width: 100%;
   display:block;
   border: none;
+  z-index: 1;
+
+  /* &:focus-visible {
+    outline: solid white 4px;
+    box-shadow: 0 0 3em #fff5;
+  } */
 }
 
 /* de touwtjes */
@@ -319,9 +341,6 @@ body {
     translateY(calc( var(--slide-depth) * -.5 ));
 }
 
-
-
-
 /*****************/
 /* DE AFBEELDING */
 /*****************/
@@ -331,4 +350,74 @@ body {
   height:100%;
   object-fit:cover;
   object-position:center;
+}
+
+/*********/
+/* TRUSS */
+/*********/
+
+.truss-1, .truss-2 {
+    position: relative;
+    left: 20em;
+    width: 120em;
+    pointer-events: none;
+    z-index: 1; 
+
+    .st0 {
+        fill: var(--primary-color);
+    }
+    
+    .st1 {
+        fill: var(--secondary-color);
+    }
+    
+    .st2 {
+        fill: var(--tertiary-color);
+    }
+}
+
+.truss-1 {
+    top: -13em;
+}
+
+.truss-2 {
+    top: -49em;
+}
+
+@media (max-width: 600px) {
+    .scheve-scroller {
+        --slide-width:10em;
+        --slide-height:15em;
+    }
+
+    .truss-1 {
+        width: 80em;
+        top: 4em;
+    }
+
+    .truss-2 {
+        width: 80em;
+        top: -28.5em;
+    }
+}
+
+/* ****** */
+/* STATES */
+/* ****** */
+
+/* hover/focus change li */
+.item:has(button:hover),
+.item:has(button:focus-visible) {
+    transform:
+        skewX( calc(var(--slides-angle) * -1) )
+        scaleX( cos( var(--slide-angle) ) )
+        skewY( calc(var(--slide-angle) * -1) )
+        translateY(-2em);
+}
+
+/* hover/focus change button */
+.scheve-scroller .item button:hover,
+.scheve-scroller .item button:focus-visible {
+    outline: solid white 4px;
+    box-shadow: 0 0 3em #fff5;
 }

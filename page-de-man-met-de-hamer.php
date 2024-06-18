@@ -20,7 +20,7 @@
             <p>Menu</p>
             <ul class="scene__menu__plane__front__submenu">
                 <li>
-                    <a class="active-link" href="/">Home</a>
+                    <a class="active-link" href="#home">Home</a>
                 </li>
                 <li>
                     <a href="#over-ons">Over Ons</a>
@@ -449,6 +449,38 @@
         <div class="additional-images"></div>
     </dialog>
 </div>
+
+<section class="prop-room">
+        <?php
+            $args = array(
+                'post_type' => 'portfolio',
+                'posts_per_page' => 30,
+            );
+
+            $blogposts = new WP_Query($args);
+
+            while ($blogposts->have_posts()) {
+                $blogposts->the_post();
+        ?>
+
+        <div class="prop-room__box" data-size="medium" >
+            <div class="prop-room__box__plane prop-room__box__plane--front"></div>
+            <div class="prop-room__box__plane prop-room__box__plane--back"></div>
+            <div class="prop-room__box__plane prop-room__box__plane--left"></div>
+            <div class="prop-room__box__plane prop-room__box__plane--right"></div>
+            <div class="prop-room__box__plane prop-room__box__plane--top">
+                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--top"></div>
+                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--bottom"></div>
+                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--right"></div>
+                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--left"></div>
+            </div>
+            <div class="prop-room__box__plane prop-room__box__plane--bottom"></div>
+            </div>
+
+        <?php }
+            wp_reset_query();
+        ?>
+    </section>
 
 
 <?php get_footer(); ?>

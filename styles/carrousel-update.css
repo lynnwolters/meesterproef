@@ -172,6 +172,8 @@ body {
 /************/
 
 .scheve-scroller .item {
+  transition: .3s; 
+  /* transition-timing-function: cubic-bezier(.13,.81,.52,.98);  */
   /* de maat */
   width: var(--slide-width);
   height: var(--slide-height);
@@ -186,6 +188,17 @@ body {
     skewX( calc(var(--slides-angle) * -1) )
     scaleX( cos( var(--slide-angle) ) )
     skewY( calc(var(--slide-angle) * -1) );
+
+    /* &:hover {
+        transform:
+            skewX( calc(var(--slides-angle) * -1) )
+            scaleX( cos( var(--slide-angle) ) )
+            skewY( calc(var(--slide-angle) * -1) )
+            translateY(-2em);
+
+            outline: solid white 4px;
+            box-shadow: 0 0 3em #fff5;
+    } */
 }
 
 /* bovenkant van een item */
@@ -236,6 +249,12 @@ body {
   width: 100%;
   display:block;
   border: none;
+  z-index: 1;
+
+  /* &:focus-visible {
+    outline: solid white 4px;
+    box-shadow: 0 0 3em #fff5;
+  } */
 }
 
 /* de touwtjes */
@@ -282,6 +301,7 @@ body {
     left: 20em;
     width: 120em;
     pointer-events: none;
+    z-index: 1; 
 
     .st0 {
         fill: var(--primary-color);
@@ -302,7 +322,6 @@ body {
 
 .truss-2 {
     top: -41.8em;
-    z-index: 1;
 }
 
 @media (max-width: 600px) {
@@ -320,4 +339,25 @@ body {
         width: 80em;
         top: -24em;
     }
+}
+
+/* ****** */
+/* STATES */
+/* ****** */
+
+/* hover/focus change li */
+.item:has(button:hover),
+.item:has(button:focus-visible) {
+    transform:
+        skewX( calc(var(--slides-angle) * -1) )
+        scaleX( cos( var(--slide-angle) ) )
+        skewY( calc(var(--slide-angle) * -1) )
+        translateY(-2em);
+}
+
+/* hover/focus change button */
+.scheve-scroller .item button:hover,
+.scheve-scroller .item button:focus-visible {
+    outline: solid white 4px;
+    box-shadow: 0 0 3em #fff5;
 }

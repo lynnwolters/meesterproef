@@ -415,7 +415,7 @@
 
             ?>
                 <li class="item">
-                    <button href="#">
+                    <button>
                         <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
                     </button>
                     <div class="data_pop-up" data-title="<?php the_title(); ?>" data-url="<?php the_permalink(); ?>" data-year="<?php echo esc_html($year); ?>" data-photographer="<?php echo esc_html($photographer); ?>" data-ontwerper="<?php echo esc_html($ontwerper); ?>" data-images='<?php echo json_encode(array_column($images, 'url')); ?>'>

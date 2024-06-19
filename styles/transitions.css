@@ -17,25 +17,24 @@
             transition-delay: 1s;
         }
 
-        body:has(#over-ons:target) .scene__room {
-            --rX:15deg;
-            --rY:45deg;
-            --tY:-20em;
+    }
 
-            /* --primary-color: #2E150D; */
-        }
-        
-        body:has(#shop:target) .scene__room {
-            --rX:195deg;
-            --rY:-45deg;
-            --tY:60em;
-        }
-        
-        body:has(#contact:target) .scene__room {
-            --rX:15deg;
-            --rY:135deg;
-            --tY:-60em;
-        }
+    body:has(#over-ons:target) .scene__room {
+        --rX:15deg;
+        --rY:45deg;
+        --tY:-20em;
+    }
+    
+    body:has(#shop:target) .scene__room {
+        --rX:195deg;
+        --rY:-45deg;
+        --tY:60em;
+    }
+    
+    body:has(#contact:target) .scene__room {
+        --rX:15deg;
+        --rY:135deg;
+        --tY:-60em;
     }
 }
 
@@ -47,9 +46,15 @@ body:not(:has(#home:target)) .scheve-scroller {
     pointer-events: none;
     --sp-default: -1;
 
-    transition: 
-    --sp-default 3s ease-in-out,
-    opacity .5s 1.5s ease-in-out;
+    @media (prefers-reduced-motion: no-preference){    
+        transition: 
+        --sp-default 3s ease-in-out,
+        opacity .5s 1.5s ease-in-out;
+    }
+}
+
+body:has(#home:target) .button__container {
+    display: flex;
 }
 
 body:not(:has(#over-ons:target)) #over-ons {
@@ -59,3 +64,4 @@ body:not(:has(#over-ons:target)) #over-ons {
 body:not(:has(#shop:target)) .prop-room {
     transform: translateX(-150vh);
 }
+

@@ -1,7 +1,6 @@
 const closeButton = document.querySelector(".dialog button");
 const dialog = document.querySelector(".dialog");
 
-// const dialogImage = document.querySelector(".dialog img");
 const dialogTitle = document.querySelector(".dialog .title");
 const dialogUrl = document.querySelector(".dialog .url");
 const dialogUrlTitle = document.querySelector(".dialog .url .title");
@@ -16,7 +15,6 @@ slides2.forEach(slide => {
 
     image.addEventListener("click", event => {
         dialog.showModal();
-        // dialogImage.setAttribute("src", image.src);
         dialogTitle.textContent = dataPopUp.getAttribute("data-title");
         dialogUrl.setAttribute("href", dataPopUp.getAttribute("data-url"));
         dialogUrlTitle.textContent = dataPopUp.getAttribute("data-title");
@@ -25,18 +23,27 @@ slides2.forEach(slide => {
         additionalInfoContainer.innerHTML = '';
         additionalImagesContainer.innerHTML = '';
 
-        // Create and append new content for info
-        const year = document.createElement('p');
-        year.textContent = `Year: ${dataPopUp.getAttribute("data-year")}`;
-        additionalInfoContainer.appendChild(year);
+        // Create and append new content for info if available
+        const year = dataPopUp.getAttribute("data-year");
+        if (year) {
+            const yearElement = document.createElement('p');
+            yearElement.textContent = `Jaar: ${year}`;
+            additionalInfoContainer.appendChild(yearElement);
+        }
 
-        const photographer = document.createElement('p');
-        photographer.textContent = `Photographer: ${dataPopUp.getAttribute("data-photographer")}`;
-        additionalInfoContainer.appendChild(photographer);
+        const photographer = dataPopUp.getAttribute("data-photographer");
+        if (photographer) {
+            const photographerElement = document.createElement('p');
+            photographerElement.textContent = `Fotograaf: ${photographer}`;
+            additionalInfoContainer.appendChild(photographerElement);
+        }
 
-        const ontwerper = document.createElement('p');
-        ontwerper.textContent = `Ontwerper: ${dataPopUp.getAttribute("data-ontwerper")}`;
-        additionalInfoContainer.appendChild(ontwerper);
+        const ontwerper = dataPopUp.getAttribute("data-ontwerper");
+        if (ontwerper) {
+            const ontwerperElement = document.createElement('p');
+            ontwerperElement.textContent = `Ontwerper: ${ontwerper}`;
+            additionalInfoContainer.appendChild(ontwerperElement);
+        }
 
         // Create and append new content for images
         const imageUrls = JSON.parse(dataPopUp.getAttribute("data-images"));
@@ -52,7 +59,6 @@ slides2.forEach(slide => {
 
 closeButton.addEventListener("click", event => {
     dialog.close();
-    // dialogImage.setAttribute("src", "");
     dialogUrl.setAttribute("href", "");
     dialogTitle.textContent = "";
     dialogUrlTitle.textContent = "";

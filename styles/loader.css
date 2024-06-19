@@ -102,7 +102,7 @@
 }
 
 .scene__loader__plane__light{
-    display:block;
+    display:none;
     height:calc(var(--deur-hoogte) + 2 * var(--licht-breedte) * tan(var(--kamer-hoek)));
     width:var(--licht-breedte);
     
@@ -122,7 +122,10 @@
             0 100%
     );
 
-	animation:licht 2s linear forwards;
+    @media (prefers-reduced-motion: no-preference){
+        display: block;
+        animation:licht 2s linear forwards;
+    }
 }
 
 @keyframes licht {

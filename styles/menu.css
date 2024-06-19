@@ -23,6 +23,7 @@ nav {
 	right:5em;
 	top:5em;
 	background-color:var(--menu-bg);
+    scale: 0.8;
 	
 	display:grid;
 	align-items:start;
@@ -34,6 +35,11 @@ nav {
 	transform:
 		rotateX(-15deg)
 		rotateY(45deg);
+
+    @media (max-width: 600px){
+        right: 2.5em;
+        top: 2em;
+    }
 }
 
 /* dakje */
@@ -105,9 +111,11 @@ nav button {
 nav a {
 	opacity:0;
 	
-	transition:
+    @media (prefers-reduced-motion: no-preference){
+        transition:
 		margin-top .5s,
 		opacity .25s;
+    }
 }
 
 nav a:hover {
@@ -134,10 +142,12 @@ nav a:nth-of-type(4) {
 /*  nav open */
 nav.open a {
 	opacity:1;
-	
-	transition:
+
+    @media (prefers-reduced-motion: no-preference){
+        transition:
 		margin-top .5s,
 		opacity .25s .25s;
+    }
 }
 
 nav.open a:nth-of-type(1) {

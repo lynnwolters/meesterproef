@@ -105,6 +105,11 @@ body {
       background-color: var(--quaternary-color-dark);
     }
 
+    &:focus-visible{
+      outline: 4px dotted var(--light);
+      background-color: var(--quaternary-color-dark);
+    }
+
     &:active{
       background-color: var(--quaternary-color);
     }

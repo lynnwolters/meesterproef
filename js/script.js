@@ -67,10 +67,11 @@ function updateTransforms(propRoomBox, scrollPosition) {
       `;
     });
   }
+
+  const propRoomBox = document.querySelectorAll(".prop-room__box");
   
   function runIfShopHash() {
     if (window.location.hash === '#shop') {
-      const propRoomBox = document.querySelectorAll(".prop-room__box");
       let scrollPosition = 0;
   
       // Functie om scroll positie te updaten en transforms toe te passen

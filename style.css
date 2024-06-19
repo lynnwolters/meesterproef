@@ -154,6 +154,9 @@ a, button {
 
     background-color: var(--primary-color);
     opacity: 0;
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Back */
@@ -164,6 +167,9 @@ a, button {
     transform: rotateY(180deg) translateZ(calc(var(--room-depth) / -2));
 
     background-color: var(--primary-color);
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Left */
@@ -175,6 +181,10 @@ a, button {
 
     background-color: var(--secondary-color);
     opacity: 0;
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
+
 }
 
 /* Right */
@@ -188,6 +198,9 @@ a, button {
     position: relative;
 
     background-color: var(--secondary-color);
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Top */
@@ -199,6 +212,9 @@ a, button {
 
     background-color: var(--tertiary-color);
     opacity: 0;
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Bottom */

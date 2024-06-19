@@ -32,7 +32,7 @@
     /* background-color: #0006; */
     max-width: 40em;
     height: var(--text-height);
-    font-size: 2em;
+    font-size: 1.5em;
     overflow-y: scroll;
     margin-top: 5em;
 
@@ -42,6 +42,10 @@
         rotateY(-45deg);
 
     color: var(--tertiary-color);
+
+    ul {
+        list-style: none;
+    }
 }
 
 .vrienden-text h3 {
@@ -60,7 +64,7 @@
     /* background-color: #0006; */
     max-width: 40em;
     height: var(--text-height);
-    font-size: 2em;
+    font-size: 1.5em;
     overflow-y: scroll;
     margin-top: 2em;
 
@@ -79,4 +83,26 @@
 .over-ons-text, .vrienden-text {
     scrollbar-width: thin;
     scrollbar-color: #0005 transparent;
+}
+
+/* klein scherm */
+@media (max-width: 600px) {
+    .vrienden-text, .over-ons-text {
+        position: relative;
+        transform: none;
+        overflow: unset;
+        height: max-content;
+        margin: 0;
+    }
+
+    #over-ons {
+        display: flex;
+        flex-direction: column;
+
+        overflow-y: scroll;
+        height: 100vh;
+        padding: 2em;
+        font-size: 1em;
+        gap: 5em;
+    }
 }

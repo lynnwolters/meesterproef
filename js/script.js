@@ -5,6 +5,7 @@
 const deNav = document.querySelector("nav");
 const navButton = document.querySelector("nav button");
 const firstNavLink = deNav.querySelector("a"); // Selecteer de eerste link binnen de nav
+const navLinks = document.querySelectorAll("nav a");
 
 function toggleNav() {
     deNav.classList.toggle("open");
@@ -16,6 +17,14 @@ function openNav() {
 
 navButton.onclick = toggleNav;
 firstNavLink.onfocus = openNav; // Voeg de openNav functie toe als event listener voor de focus op de eerste link
+
+navLinks.forEach(link => {
+	link.addEventListener("click", () => {
+		deNav.classList.remove("open"); 
+	});
+});
+
+
 // ***************** //
 // PROP ROOM SCROLL //
 // *************** //

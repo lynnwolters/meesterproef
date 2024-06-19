@@ -209,9 +209,6 @@ a, button {
     transform: rotateX(90deg) translateZ(calc(var(--room-height) / -2));
 
     background-color: var(--tertiary-color);
-    /* background-color: color-mix(in srgb, var(--tertiary-color), black 20%); */
     background-blend-mode: color-burn;
-
-    /* background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png"); */
     background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
 }

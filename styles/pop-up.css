@@ -1,6 +1,8 @@
 .dialog {
     --dialog-padding-size: 2em;
 
+    padding: var(--dialog-padding-size);
+
     flex-direction: column;
     align-items: center;
     justify-content: center;

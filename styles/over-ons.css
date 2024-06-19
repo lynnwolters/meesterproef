@@ -1,5 +1,5 @@
 #over-ons {
-    --text-height: 80vh;
+    --text-height: 100vh;
 
     /* background-color: #fff5; */
     width: 100%;
@@ -7,7 +7,9 @@
     /* margin-top: 10em; */
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* gap: 6em; */
     /* transform: translateY(10em); */
+    padding: 0 2em;
 
     @media (prefers-reduced-motion: no-preference){
         transition: var(--page-transition);
@@ -21,9 +23,31 @@
         display: block;
 
         &:hover, &:focus-visible {
-            background-color: #fff5;
+            text-decoration: underline;
+        }
+
+        &:focus-visible {
+            outline: none;
+            background-color: #fff2;
         }
     }
+}
+
+#over-ons img {
+    max-width: 15em;
+}
+
+#over-ons p {
+    font-weight: 200;
+    line-height: 120%;
+}
+
+#over-ons h2, #over-ons h3 {
+    font-weight: 500;
+}
+
+#over-ons ul {
+    list-style: none;
 }
 
 /* ******************* */
@@ -36,7 +60,8 @@
     height: var(--text-height);
     font-size: 1.5em;
     overflow-y: scroll;
-    margin-top: 5em;
+    /* margin-top: 5em; */
+    padding: 7em 0;
 
     transform-style: preserve-3d;
     transform:
@@ -44,14 +69,14 @@
         rotateY(-45deg);
 
     color: var(--tertiary-color);
-
-    ul {
-        list-style: none;
-    }
 }
 
 .vrienden-text h3 {
-    margin-top: 1em;
+    margin-top: .5em;
+}
+
+.vrienden-text ul li {
+    margin-top: 2em;
 }
 
 .vrienden-text li p {
@@ -68,17 +93,39 @@
     height: var(--text-height);
     font-size: 1.5em;
     overflow-y: scroll;
-    margin-top: 2em;
+    /* margin-top: 2em; */
+    padding: 5em 0;
 
     transform-style: preserve-3d;
     transform:
         rotateX(15deg)
         rotateY(-45deg);
 
+    p {
+        margin-top: 1em;
+    }
+
 }
 
-.over-ons-text h2 {
+.over-ons-text h2:nth-of-type(2) {
     margin-top: 1em;
+}
+
+/* afbeeldingen */
+.img-container {
+    display: flex;
+    overflow-x: scroll;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.img-container li img {
+    width: unset;
+}
+
+.img-container li p {
+    width: unset;
+    margin: 0 0 1em 0;
 }
 
 /* scrollbar */
@@ -88,13 +135,14 @@
 }
 
 /* klein scherm */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .vrienden-text, .over-ons-text {
         position: relative;
         transform: none;
         overflow: unset;
         height: max-content;
         margin: 0;
+        padding: 0;
     }
 
     #over-ons {
@@ -103,8 +151,8 @@
 
         overflow-y: scroll;
         height: 100vh;
-        padding: 2em;
         font-size: 1em;
         gap: 5em;
+        padding: 10em 2em 2em 2em;
     }
 }

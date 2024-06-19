@@ -48,8 +48,8 @@ img {
     font-family: "Outfit", sans-serif;
     font-weight: 400;
     letter-spacing: .1em;
-    text-transform: uppercase;
-    text-align: center;
+    /* text-transform: uppercase; */
+    /* text-align: center; */
     line-height: 110%;
     color: var(--light);
     text-decoration: none;
@@ -95,6 +95,27 @@ a, button {
 /* ********** */
 /* CONTAINER */
 /* ******** */
+
+.spotlight{
+    position: absolute;
+    background-color: var(--light);
+    height: 150vh;
+    clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
+    top: -25vh;
+    opacity: 0;
+    aspect-ratio: 1/3;
+    transition: var(--transition-base);
+}
+
+.spotlight.one{
+    left: 50vw;
+    transform: rotate(30deg);
+}
+
+.spotlight.two{
+    left: 25vw;
+    transform: rotate(-20deg);
+}
 
 .container {
     height: 100dvh;
@@ -154,6 +175,9 @@ a, button {
 
     background-color: var(--primary-color);
     opacity: 0;
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Back */
@@ -164,6 +188,9 @@ a, button {
     transform: rotateY(180deg) translateZ(calc(var(--room-depth) / -2));
 
     background-color: var(--primary-color);
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Left */
@@ -175,6 +202,10 @@ a, button {
 
     background-color: var(--secondary-color);
     opacity: 0;
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
+
 }
 
 /* Right */
@@ -188,6 +219,9 @@ a, button {
     position: relative;
 
     background-color: var(--secondary-color);
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Top */
@@ -199,6 +233,9 @@ a, button {
 
     background-color: var(--tertiary-color);
     opacity: 0;
+
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-blend-mode: color-burn;
 }
 
 /* Bottom */

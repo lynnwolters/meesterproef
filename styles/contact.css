@@ -1,0 +1,47 @@
+.contact{
+    display: flex;
+    gap: 5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80vw;
+    height: 100vh;
+    align-items: center;
+
+    transition: 2s 2s ease-out;
+}
+
+.contact section{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: color-mix(in srgb, var(--secondary-color), white 20%);
+    padding: 2em;
+    color: var(--dark);
+    height: fit-content;
+    margin-left: 20%;
+    box-shadow: 0 0 1em var(--light);
+    
+    @media (prefers-reduced-motion: no-preference){
+        animation: box-shadow-ani 1s infinite ease-in-out alternate;
+    }
+
+    h2{
+        text-transform: uppercase;
+        text-align: left;
+    }
+    
+    p{
+         /* color: var(--dark); */
+         text-transform: none;
+         text-align: left;
+    }
+}
+
+.contact svg{
+    height: 60%;
+}
+
+#ster{
+    transform-origin: 30% 80%;
+}

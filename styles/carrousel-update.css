@@ -42,6 +42,9 @@ body {
   --slide-width:clamp(10em, 15vw, 20em);
   --slide-height:clamp(15em, 22.5vw, 30em);
 
+  /* --slide-width:15em;
+  --slide-height:25em; */
+
   --slide-depth:.5em;
   
   --slide-angle:14deg;
@@ -383,6 +386,23 @@ body {
 .truss-2 {
     top: -49em;
 }
+
+/* @media (max-width: 600px) {
+    .scheve-scroller {
+        --slide-width:10em;
+        --slide-height:15em;
+    }
+
+    .truss-1 {
+        width: 80em;
+        top: 4em;
+    }
+
+    .truss-2 {
+        width: 80em;
+        top: -28.5em;
+    }
+} */
 
 /* ****** */
 /* STATES */

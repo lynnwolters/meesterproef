@@ -206,4 +206,10 @@ a, button {
     transform: rotateX(90deg) translateZ(calc(var(--room-height) / -2));
 
     background-color: var(--tertiary-color);
+
+    background-image: url("http://man-met-de-hamer.local/wp-content/uploads/2024/06/huot-scaled.jpg");
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center;
+    background-blend-mode: luminosity;
 }

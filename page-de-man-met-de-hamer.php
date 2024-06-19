@@ -5,6 +5,9 @@
         <button type="button" class="rechts-omdat-het-van-eva-is">→</button>
     </form>
 
+
+<div class="noise"></div>
+
     <section class="scene__room">
         <div class="scene__room__plane__front"></div>
         <div class="scene__room__plane__back"></div>

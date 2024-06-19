@@ -4,12 +4,20 @@
 
 const deNav = document.querySelector("nav");
 const navButton = document.querySelector("nav button");
+const navLinks = document.querySelectorAll("nav a");
 
 function toggleNav() {
 	deNav.classList.toggle("open");
 }
 
 navButton.onclick = toggleNav;
+
+navLinks.forEach(link => {
+	link.addEventListener("click", () => {
+		deNav.classList.remove("open"); 
+	});
+});
+
 
 // ***************** //
 // PROP ROOM SCROLL //

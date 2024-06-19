@@ -455,17 +455,21 @@
 
 <div class="contact">
     <section>
-        <h2>Contact</h2>
-        <p>Schroom niet om een afspraak te maken met De Man met de Hamer!</p>
-        <p>
-            Visseringweg 9 <br>
-            1112 AS <br>
-            Diemen <br>
-            Netherlands <br>
-            tel: 31 20 669 3841 <br>
-            mail: info@demanmetdehamer.nl <br>
-        </p>
+        <div class="contact-text">
+            <h2>Contact</h2>
+            <p>Schroom niet om een afspraak te maken met De Man met de Hamer!</p>
+            <p>
+                Visseringweg 9 <br>
+                1112 AS <br>
+                Diemen <br>
+                Netherlands <br>
+                tel: 31 20 669 3841 <br>
+                mail: info@demanmetdehamer.nl <br>
+            </p>
+        </div>
+        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/werkplaats.jpg" alt="">
     </section>
+
 </div>
 
 <section class="prop-room">

@@ -7,23 +7,32 @@
     width: 80vw;
     height: 100vh;
     align-items: center;
+
+    transition: 2s 2s ease-out;
 }
 
 .contact section{
     display: flex;
     flex-direction: column;
     gap: 1em;
-    background-color: rgb(175, 175, 175);
+    background-color: color-mix(in srgb, var(--secondary-color), white 20%);
     padding: 2em;
     color: var(--dark);
     height: fit-content;
     margin-left: 20%;
-    border: 10px solid var(--primary-color);
+    box-shadow: 0 0 1em var(--light);
     
-    background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+    @media (prefers-reduced-motion: no-preference){
+        animation: box-shadow-ani 1s infinite ease-in-out alternate;
+    }
 
-    p, h2{
-         color: var(--dark);
+    h2{
+        text-transform: uppercase;
+        text-align: left;
+    }
+    
+    p{
+         /* color: var(--dark); */
          text-transform: none;
          text-align: left;
     }

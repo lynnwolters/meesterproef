@@ -44,6 +44,10 @@
             animation: rotate 1s 2s linear;
         }
     }
+
+    body:has(#contact:target) .spotlight{
+        opacity: 0.1;
+    }
 }
 
 
@@ -87,4 +91,7 @@ body:not(:has(#shop:target)) .prop-room {
 
 body:not(:has(#contact:target)) .contact{
     transform: translateY(-100vh);
+
+    transition: 2s ease-out;
+
 }

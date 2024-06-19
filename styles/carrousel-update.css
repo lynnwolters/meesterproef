@@ -387,7 +387,7 @@ body {
     top: -49em;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .scheve-scroller {
         --slide-width:10em;
         --slide-height:15em;
@@ -402,7 +402,7 @@ body {
         width: 80em;
         top: -28.5em;
     }
-}
+} */
 
 /* ****** */
 /* STATES */

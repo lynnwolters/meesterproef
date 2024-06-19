@@ -469,13 +469,13 @@
 </div>
 
 <section class="prop-room">
-        <?php
-            $args = array(
-                'post_type' => 'props',
-                'posts_per_page' => 30,
-            );
+    <?php
+        $args = array(
+            'post_type' => 'props',
+            'posts_per_page' => 30,
+        );
 
-            $blogposts = new WP_Query($args);
+        $blogposts = new WP_Query($args);
 
         while ($blogposts->have_posts()) {
             $blogposts->the_post();
@@ -492,36 +492,49 @@
                 // Get the alt text of the thumbnail
                 $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
 
-                    // Get the custom field 'year' from ACF
-                    $prijs = get_field('prijs');
-                    $formaatDoos = get_field('formaat_doos');
+                // Get the custom field 'prijs' from ACF
+                $prijs = get_field('prijs');
+                $formaatDoos = get_field('formaat_doos');
+                $title = get_the_title();
+    ?>
 
-        ?>
-
-        <div class="prop-room__box" data-size="<?php echo esc_html($formaatDoos); ?>" >
-            <div class="prop-room__box__plane prop-room__box__plane--front">
-                <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
-            </div>
-            <div class="prop-room__box__plane prop-room__box__plane--back"></div>
-            <div class="prop-room__box__plane prop-room__box__plane--left">
-                <p><?php echo esc_html($prijs); ?></p>
-            </div>
-            <div class="prop-room__box__plane prop-room__box__plane--right"></div>
-            <div class="prop-room__box__plane prop-room__box__plane--top">
-                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--top"></div>
-                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--bottom"></div>
-                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--right"></div>
-                <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--left"></div>
-            </div>
-            <div class="prop-room__box__plane prop-room__box__plane--bottom"></div>
-            </div>
-
-        <?php 
+    <div class="prop-room__box" data-size="<?php echo esc_html($formaatDoos); ?>">
+        <div class="prop-room__box__plane prop-room__box__plane--front">
+            <button class="prop-btn" data-title="<?php echo esc_attr($title); ?>" data-prijs="<?php echo esc_attr($prijs); ?>" data-thumbnail="<?php echo esc_url($thumbnail_url); ?>">
+                <img class="prop-img" src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
+            </button>
+        </div>
+        <div class="prop-room__box__plane prop-room__box__plane--back"></div>
+        <div class="prop-room__box__plane prop-room__box__plane--left">
+            <p><?php echo esc_html($prijs); ?></p>
+        </div>
+        <div class="prop-room__box__plane prop-room__box__plane--right"></div>
+        <div class="prop-room__box__plane prop-room__box__plane--top">
+            <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--top"></div>
+            <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--bottom"></div>
+            <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--right"></div>
+            <div class="prop-room__box__plane__top__lid prop-room__box__plane__top__lid--left"></div>
+        </div>
+        <div class="prop-room__box__plane prop-room__box__plane--bottom"></div>
+    </div>
+    <?php 
             }    
-         }
-            wp_reset_query();
-        ?>
-    </section>
+        }
+        wp_reset_query();
+    ?>
+
+    <dialog class="dialog-propshop">
+        <button class="close-btn-propshop">
+            <span></span>
+        </button>
+        <img class="dialog-propshop-img" src="" alt="">
+        <h2 class="title"></h2>
+        <div class="dialog-propshop-content-container">
+            <div class="additional-info-prop"></div>
+        </div>
+    </dialog>
+</section>
+
 
 
 <?php get_footer(); ?>

@@ -15,6 +15,7 @@ function bofesto_setup(){
 	wp_enqueue_style( 'popup', get_template_directory_uri() . '/styles/pop-up.css');
 	wp_enqueue_style( 'prop-room', get_template_directory_uri() . '/styles/prop-room.css');
 	wp_enqueue_style( 'custom-cursor', get_template_directory_uri() . '/styles/custom-cursor.css');
+	wp_enqueue_style( 'single', get_template_directory_uri() . '/styles/single.css');
 
     wp_enqueue_script("main", get_theme_file_uri('/js/script.js'), NULL, microtime(), true);
 	wp_enqueue_script("pop-up", get_theme_file_uri('/js/pop-up.js'), NULL, microtime(), true);

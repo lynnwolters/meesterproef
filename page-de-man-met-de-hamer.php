@@ -7,6 +7,8 @@
 
 
 <div class="noise"></div>
+<div class="spotlight one"></div>
+<div class="spotlight two"></div>
 
     <section class="scene__room">
         <div class="scene__room__plane__front"></div>
@@ -449,6 +451,21 @@
         </div>
         <div class="additional-images"></div>
     </dialog>
+</div>
+
+<div class="contact">
+    <section>
+        <h2>Contact</h2>
+        <p>Schroom niet om een afspraak te maken met De Man met de Hamer!</p>
+        <p>
+            Visseringweg 9 <br>
+            1112 AS <br>
+            Diemen <br>
+            Netherlands <br>
+            tel: 31 20 669 3841 <br>
+            mail: info@demanmetdehamer.nl <br>
+        </p>
+    </section>
 </div>
 
 <section class="prop-room">

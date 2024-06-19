@@ -36,6 +36,25 @@
         --rY:135deg;
         --tY:-60em;
     }
+
+    body:has(#contact:target) .contact{
+        transform: translateY(0vh);
+
+        #ster{
+            animation: rotate 1s 2s linear;
+        }
+    }
+
+    body:has(#contact:target) .spotlight{
+        opacity: 0.1;
+    }
+}
+
+
+@keyframes rotate{
+    to{
+        rotate: 1turn;
+    }
 }
 
 /* caroussel naar boven */
@@ -69,3 +88,10 @@ body:not(:has(#shop:target)) .prop-room {
     transform: translateX(-150vh);
 }
 
+
+body:not(:has(#contact:target)) .contact{
+    transform: translateY(-100vh);
+
+    transition: 2s ease-out;
+
+}

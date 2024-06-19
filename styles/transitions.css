@@ -59,6 +59,10 @@ body:has(#home:target) .button__container {
 
 body:not(:has(#over-ons:target)) #over-ons {
     transform: translateY(-150vh);
+
+    a{
+        display: none;
+    }
 }
 
 body:not(:has(#shop:target)) .prop-room {

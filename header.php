@@ -16,6 +16,4 @@
         
     </header>
 
-<div class="noise"></div>
-
 <main class="container">

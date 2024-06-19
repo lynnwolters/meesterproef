@@ -4,13 +4,19 @@
 
 const deNav = document.querySelector("nav");
 const navButton = document.querySelector("nav button");
+const firstNavLink = deNav.querySelector("a"); // Selecteer de eerste link binnen de nav
 const navLinks = document.querySelectorAll("nav a");
 
 function toggleNav() {
-	deNav.classList.toggle("open");
+    deNav.classList.toggle("open");
+}
+
+function openNav() {
+    deNav.classList.add("open");
 }
 
 navButton.onclick = toggleNav;
+firstNavLink.onfocus = openNav; // Voeg de openNav functie toe als event listener voor de focus op de eerste link
 
 navLinks.forEach(link => {
 	link.addEventListener("click", () => {
@@ -23,31 +29,86 @@ navLinks.forEach(link => {
 // PROP ROOM SCROLL //
 // *************** //
 
-const propRoomBox = document.querySelectorAll(".prop-room__box");
-let scrollPosition = 0;
+// const propRoomBox = document.querySelectorAll(".prop-room__box");
+// let scrollPosition = 0;
 
-function updateTransforms() {
-  propRoomBox.forEach((box) => {
-    const isHovered = box.matches(':hover');
-    const hoverTransform = isHovered ? ' translateY(0em)' : '';
+// function updateTransforms() {
+//   propRoomBox.forEach((box) => {
+//     const isHovered = box.matches(':hover');
+//     const hoverTransform = isHovered ? ' translateY(0em)' : '';
 
-    box.style.transform = `
-      rotateX(-90deg) 
-      translateZ(${scrollPosition}px)
-      ${hoverTransform}
-    `;
-  });
-}
+//     box.style.transform = `
+//       rotateX(-90deg) 
+//       translateZ(${scrollPosition}px)
+//       ${hoverTransform}
+//     `;
+//   });
+// }
 
-window.addEventListener("wheel", (event) => {
-  scrollPosition += event.deltaY * -1; 
-  updateTransforms();
-});
+// window.addEventListener("wheel", (event) => {
+//   scrollPosition += event.deltaY * -1; 
+//   updateTransforms();
+// });
 
-propRoomBox.forEach((box) => {
-  box.addEventListener("mouseenter", updateTransforms);
-  box.addEventListener("mouseleave", updateTransforms);
-});
+// propRoomBox.forEach((box) => {
+//   box.addEventListener("mouseenter", updateTransforms);
+//   box.addEventListener("mouseleave", updateTransforms);
+// });
+
+function updateTransforms(propRoomBox, scrollPosition) {
+    propRoomBox.forEach((box) => {
+      const isHovered = box.matches(':hover');
+      const hoverTransform = isHovered ? ' translateY(0em)' : '';
+  
+      box.style.transform = `
+        rotateX(-90deg) 
+        translateZ(${scrollPosition}px)
+        ${hoverTransform}
+      `;
+    });
+  }
+  
+  function runIfShopHash() {
+    if (window.location.hash === '#shop') {
+      const propRoomBox = document.querySelectorAll(".prop-room__box");
+      let scrollPosition = 0;
+  
+      // Functie om scroll positie te updaten en transforms toe te passen
+      function onScroll(event) {
+        scrollPosition += event.deltaY * -1;
+        updateTransforms(propRoomBox, scrollPosition);
+      }
+  
+      // Functie om transforms te updaten bij hover
+      function onHover() {
+        updateTransforms(propRoomBox, scrollPosition);
+      }
+  
+      // Event listeners toevoegen
+      window.addEventListener("wheel", onScroll);
+      propRoomBox.forEach((box) => {
+        box.addEventListener("mouseenter", onHover);
+        box.addEventListener("mouseleave", onHover);
+      });
+  
+      // Verwijder event listeners als de hash verandert
+      window.addEventListener("hashchange", () => {
+        if (window.location.hash !== '#shop') {
+          window.removeEventListener("wheel", onScroll);
+          propRoomBox.forEach((box) => {
+            box.removeEventListener("mouseenter", onHover);
+            box.removeEventListener("mouseleave", onHover);
+          });
+        }
+      }, { once: true });
+    }
+  }
+  
+  // Controleer de hash bij het laden van de pagina
+  document.addEventListener("DOMContentLoaded", runIfShopHash);
+  
+  // Luister naar wijzigingen in de hash
+  window.addEventListener("hashchange", runIfShopHash);
 
 // ********* //
 // OPEN BOX //

@@ -8,7 +8,7 @@
     width: 80dvw;
     height: 80dvh;
     transform: translate(10dvw, 10dvh);
-    background-color: color-mix(in srgb, var(--dark), transparent 50%);
+    background-color: color-mix(in srgb, var(--dark), transparent 20%);
     border: none;
 }
 

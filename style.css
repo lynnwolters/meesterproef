@@ -83,7 +83,6 @@ a, button {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1000;
 
     background-image: url("http://man-met-de-hamer.local/wp-content/uploads/2024/06/noise.png");
     background-size: cover;
@@ -126,7 +125,11 @@ a, button {
     border: none;
 
     background-color: transparent;
+
+    z-index: -1;
 }
+
+
 
 .scene__room div {    
     grid-area: 1/1;
@@ -206,10 +209,6 @@ a, button {
     transform: rotateX(90deg) translateZ(calc(var(--room-height) / -2));
 
     background-color: var(--tertiary-color);
-
-    background-image: url("http://man-met-de-hamer.local/wp-content/uploads/2024/06/huot-scaled.jpg");
-    background-repeat: no-repeat;
-    background-size: 150%;
-    background-position: center;
-    background-blend-mode: luminosity;
+    background-blend-mode: color-burn;
+    background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
 }

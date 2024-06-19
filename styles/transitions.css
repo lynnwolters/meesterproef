@@ -17,24 +17,25 @@
             transition-delay: 1s;
         }
 
-    }
+        body:has(#over-ons:target) .scene__room {
+            --rX:15deg;
+            --rY:45deg;
+            --tY:-20em;
 
-    body:has(#over-ons:target) .scene__room {
-        --rX:15deg;
-        --rY:45deg;
-        --tY:-20em;
-    }
-    
-    body:has(#shop:target) .scene__room {
-        --rX:195deg;
-        --rY:-45deg;
-        --tY:60em;
-    }
-    
-    body:has(#contact:target) .scene__room {
-        --rX:15deg;
-        --rY:135deg;
-        --tY:-60em;
+            /* --primary-color: #2E150D; */
+        }
+        
+        body:has(#shop:target) .scene__room {
+            --rX:195deg;
+            --rY:-45deg;
+            --tY:60em;
+        }
+        
+        body:has(#contact:target) .scene__room {
+            --rX:15deg;
+            --rY:135deg;
+            --tY:-60em;
+        }
     }
 
     body:has(#contact:target) .contact{
@@ -65,11 +66,9 @@ body:not(:has(#home:target)) .scheve-scroller {
     pointer-events: none;
     --sp-default: -1;
 
-    @media (prefers-reduced-motion: no-preference){    
-        transition: 
-        --sp-default 3s ease-in-out,
-        opacity .5s 1.5s ease-in-out;
-    }
+    transition: 
+    --sp-default 3s ease-in-out,
+    opacity .5s 1.5s ease-in-out;
 }
 
 body:has(#home:target) .button__container {

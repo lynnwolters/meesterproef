@@ -1,4 +1,4 @@
-.dialog {
+.dialog-propshop {
     --dialog-padding-size: 2em;
 
     padding: var(--dialog-padding-size);
@@ -14,11 +14,11 @@
     border: none;
 }
 
-.dialog[open]{
+.dialog-propshop[open]{
     display: flex;
 }
 
-.dialog-propshop .close-btn-propshop{
+.dialog-propshop .close-btn{
     position: absolute;
     aspect-ratio: 1;
     width: 3em;
@@ -74,13 +74,13 @@
     }
 }
 
-.dialog h2{
+.dialog-propshop h2{
     position: absolute;
     top: calc(var(--dialog-padding-size) / 2);
     font-size: clamp(1em, 4vw, 3em);
 }
 
-.dialog a{
+.dialog-propshop a{
     text-decoration: 2px solid underline;
 
     @media (prefers-reduced-motion: no-preference){
@@ -93,7 +93,7 @@
     }
 }
 
-.dialog-content-container{
+.dialog-propshop-content-container{
     display: flex;
     flex-direction: column;
     gap: 1em;

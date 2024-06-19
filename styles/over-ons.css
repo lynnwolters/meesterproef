@@ -69,6 +69,9 @@
         rotateY(-45deg);
 
     color: var(--tertiary-color);
+
+    mask-image: linear-gradient(to bottom, transparent 0 1%, red 20% 80%, transparent 99%);
+
 }
 
 .vrienden-text h3 {
@@ -104,6 +107,8 @@
     p {
         margin-top: 1em;
     }
+
+    mask-image: linear-gradient(to bottom, transparent 0 1%, red 20% 80%, transparent 99%);
 
 }
 

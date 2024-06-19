@@ -126,6 +126,7 @@ nav button:hover {
 nav a:focus-visible,
 nav button:focus-visible{
     outline: 4px dotted var(--light);
+	outline-offset: -4px;
     background-color: var(--quaternary-color-dark);
 }
 

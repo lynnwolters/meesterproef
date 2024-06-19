@@ -31,16 +31,32 @@
     <section id="over-ons">
     <div class="over-ons-text">
             <h2>Over ons</h2>
-            <p>Welkom bij De Man met de Hamer! Wij zijn een enthousiast team met een passie voor vakmanschap en oog voor detail. Of het nu gaat om indrukwekkende theaterdecors, unieke props of interieur, wij staan klaar om je ideeën werkelijkheid te maken.
-            Bij De Man met de Hamer geloven we dat een goed ontwerp een verhaal vertelt en een blijvende indruk achterlaat. Met jarenlange ervaring en een breed scala aan vaardigheden, combineren we traditionele technieken met moderne innovaties om producten te maken die zowel functioneel als mooi zijn.
-            We begeleiden je door het hele proces om ervoor te zorgen dat het eindresultaat precies is wat je voor ogen had.
+            <p>Welkom bij De Man met de Hamer! Wij zijn een enthousiast team met een passie voor vakmanschap en oog voor detail. Of het nu gaat om indrukwekkende theaterdecors, unieke props of interieur, wij staan klaar om je ideeën werkelijkheid te maken.</p>
+
+            <p>Bij De Man met de Hamer geloven we dat een goed ontwerp een verhaal vertelt en een blijvende indruk achterlaat. Met jarenlange ervaring en een breed scala aan vaardigheden, combineren we traditionele technieken met moderne innovaties om producten te maken die zowel functioneel als mooi zijn.</p>
+
+            <p>We begeleiden je door het hele proces om ervoor te zorgen dat het eindresultaat precies is wat je voor ogen had.
             Geef ons een belletje en kom langs in onze werkplaats in Diemen om te ontdekken hoe De Man met de Hamer jouw volgende project tot een meesterwerk kan maken. We kunnen niet wachten om samen aan de slag te gaan!</p>
             <h2>Medewerkers</h2>
             <p>Bij De Man met de Hamer zijn we trots op ons team van getalenteerde en toegewijde medewerkers. Elk lid van ons team brengt unieke vaardigheden met zich mee, waardoor we samen de hoogste kwaliteit kunnen leveren.</p>
-            <img src="/img/medewerker1.jpg" alt="">
-            <img src="/img/medewerker2.jpg" alt="">
-            <img src="/img/freelancer.jpg" alt="">
-            <img src="/img/medewerker3.jpg" alt="">
+            <ul class="img-container">
+                <li>
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker3.jpg" alt="">
+                    <p>Maarten Smids</p>
+                </li>
+                <li>
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker1.jpg" alt="">
+                    <p>Berd Visscher</p>
+                </li>
+                <li>
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker2.jpg" alt="">
+                    <p>Rienk Krikke</p>
+                </li>
+                <li>
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/freelancer.jpg" alt="">
+                    <p>Dirk Broer</p>
+                </li>
+            </ul>
         </div>
         
         <div class="vrienden-text">
@@ -48,34 +64,37 @@
             <p>In de vele jaren werkervaring heeft De Man met de Hamer veel waardevolle contacten gelegd. Deze vrienden van ons zijn stuk voor stuk experts in hun vakgebied, en we bevelen ze van harte aan voor jouw projecten:</p>
             <ul>
                 <li>
-                    <a href="https://netecht.net/" target="blank_">
-                        <h3>Net Echt Decors</h3>
-                        <p>Onze beste decorschilder</p>
-                    </a>
-                </li>
-                <li>
                     <a href="https://jorisvanveldhoven.nl/" target="blank_">
+                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/joris-logo.png" alt="Joris van Veldhoven logo">
                         <h3>Joris van Veldhoven</h3>
-                        <p>Onze favoriete ontwerper</p>
                     </a>
+                    <p>Onze favoriete ontwerper</p>
                 </li>
                 <li>
                     <a href="https://www.instagram.com/dieuwekev/" target="blank_">
+                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/dieuweke.jpg" alt="afbeelding van Dieuweke van Reij">
                         <h3>Dieuweke van Reij</h3>
-                        <p>Onze favoriete ontwerpster</p>
                     </a>
+                    <p>Onze favoriete ontwerpster</p>
                 </li>
                 <li>
                     <a href="http://destaalfabriek.nl/" target="blank_">
+                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/de-staalfabriek-logo.png" alt="Logo van de staalfabriek">
                         <h3>De Staalfabriek</h3>
-                        <p>Onze favoriete verhuurder</p>
                     </a>
+                    <p>Onze favoriete verhuurder</p>
+                </li>
+                <li>
+                    <a href="https://netecht.net/" target="blank_">
+                        <h3>Net Echt Decors</h3>
+                    </a>
+                    <p>Onze beste decorschilder</p>
                 </li>
                 <li>
                     <a href="https://depastoriediemen.nl/" target="blank_">
                         <h3>DePastorie Diemen</h3>
-                        <p>Onze favoriete foto studio en yoga club</p>
                     </a>
+                    <p>Onze favoriete foto studio en yoga club</p>
                 </li>
             </ul>
         </div>

@@ -6,6 +6,22 @@ Welkom bij de repository van de website van De Man met de Hamer. In deze README 
 
 ## Hoe installeer je dit project?
 
+Stap 1. Local installeren: https://localwp.com/
+
+Stap 2. Account aanmaken bij Local
+
+Stap 3. Lokale omgeving aanmaken
+
+Stap 4. Database uploaden (stuur ons een e-mail voor deze gegevens)
+
+Stap 5. GitHub project clonen in de correcte themes map 
+
+Stap 6. Uploads in plugin map veranderen (stuur ons een e-mail voor deze gegevens)
+
+Stap 7. Inloggen in Wordpress (stuur ons een e-mail voor deze gegevens)
+
+Stap 8. Thema activeren in WordPress
+
 ## Dit project is gebouwd met:
 
 - WordPress (CMS)

@@ -365,6 +365,7 @@ body {
     width: 120em;
     pointer-events: none;
     z-index: 1; 
+    top: clamp(-30em, -14vw,  -5em);
 
     .st0 {
         fill: var(--primary-color);
@@ -379,12 +380,8 @@ body {
     }
 }
 
-.truss-1 {
-    top: -13em;
-}
-
 .truss-2 {
-    top: -49em;
+    transform: translateY(-28em);
 }
 
 /* @media (max-width: 600px) {

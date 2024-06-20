@@ -10,6 +10,11 @@
     justify-content: center;
 
     transition: 2s 2s ease-out;
+
+    @media (min-width: 800px){
+        left: 20vw;
+        width: 60vw;
+    }
 }
 
 .contact section{

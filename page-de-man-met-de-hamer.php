@@ -467,7 +467,7 @@
                 mail: info@demanmetdehamer.nl <br>
             </p>
         </div>
-        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/werkplaats.jpg" alt="">
+        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/werkplaats.jpg" alt="Afbeelding van de ingang van De Man Met De Hamer">
     </section>
 
 </div>

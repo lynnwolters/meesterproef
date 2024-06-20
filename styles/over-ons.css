@@ -70,8 +70,9 @@
 
     color: var(--tertiary-color);
 
-    mask-image: linear-gradient(to bottom, transparent 0 1%, red 20% 80%, transparent 99%);
-
+    @media (min-width: 700px){
+        mask-image: linear-gradient(to bottom, transparent 0 1%, red 20% 80%, transparent 99%);
+    }
 }
 
 .vrienden-text h3 {
@@ -108,8 +109,9 @@
         margin-top: 1em;
     }
 
-    mask-image: linear-gradient(to bottom, transparent 0 1%, red 20% 80%, transparent 99%);
-
+    @media (min-width: 700px){
+        mask-image: linear-gradient(to bottom, transparent 0 1%, red 20% 80%, transparent 99%);
+    }
 }
 
 .over-ons-text h2:nth-of-type(2) {

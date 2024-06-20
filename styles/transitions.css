@@ -21,8 +21,10 @@
             --rX:15deg;
             --rY:45deg;
             --tY:-20em;
+        }
 
-            /* --primary-color: #2E150D; */
+        body:has(#over-ons:target) .spotlight{
+            animation: spotlight-ani 1s 2s forwards reverse;
         }
         
         body:has(#shop:target) .scene__room {
@@ -44,10 +46,6 @@
         #ster{
             animation: rotate 1s 2s linear;
         }
-    }
-
-    body:has(#contact:target) .spotlight{
-        opacity: 0.1;
     }
 }
 
@@ -83,6 +81,10 @@ body:not(:has(#over-ons:target)) #over-ons {
     }
 }
 
+body:not(:has(#over-ons:target)) .spotlight{
+    animation: spotlight-ani 1s 2s forwards;
+}
+
 body:not(:has(#shop:target)) .prop-room {
     transform: translateX(-150vh);
 }
@@ -92,5 +94,4 @@ body:not(:has(#contact:target)) .contact{
     transform: translateY(-100vh);
 
     transition: 2s ease-out;
-
 }

@@ -18,7 +18,7 @@
     display: flex;
 }
 
-.dialog-propshop .close-btn{
+.dialog-propshop .close-btn-propshop{
     position: absolute;
     aspect-ratio: 1;
     width: 3em;

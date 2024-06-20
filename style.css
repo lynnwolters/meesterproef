@@ -104,7 +104,17 @@ a, button {
     top: -25vh;
     opacity: 0;
     aspect-ratio: 1/3;
-    transition: var(--transition-base);
+    animation: spotlight-ani 1s 3s forwards;
+}
+
+@keyframes spotlight-ani{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 0.1;
+    }
 }
 
 .spotlight.one{

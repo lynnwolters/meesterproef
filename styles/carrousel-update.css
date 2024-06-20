@@ -40,7 +40,19 @@ body {
   --slides-margin:2em;
   
   --slide-width:clamp(10em, 15vw, 20em);
-  --slide-height:clamp(15em, 22.5vw, 30em);
+  --slide-height:calc(var(--slide-width) * 1.5);
+
+  --slides-wiskunde:max(
+    calc( 
+      var(--slides-spacing) * -.5 + 
+      tan( var(--slide-angle) ) * var(--slide-width) * .5 +
+      var( --slides-margin)
+    ),
+    calc( 
+      (50dvh - ( var(--slide-height) + var(--slides-spacing) ) / 2) -
+      ( (50vw - var( --slides-margin) - var(--slide-width) / 2) / tan(var(--slides-angle)) )
+    )
+  );
 
   /* --slide-width:15em;
   --slide-height:25em; */
@@ -193,8 +205,8 @@ body {
   /* moeilijk gereken om te zorgen dat de items ... */
   /* de --slides-margin van boven of van links beginnen */
   /* nb. tan() werkt niet in alle browsers */
-  padding-block:
-    max(
+  padding-block:var(--slides-wiskunde);
+    /* max(
       calc( 
         var(--slides-spacing) * -.5 + 
         tan( var(--slide-angle) ) * var(--slide-width) * .5 +
@@ -204,7 +216,7 @@ body {
         (50dvh - ( var(--slide-height) + var(--slides-spacing) ) / 2) -
         ( (50vw - var( --slides-margin) - var(--slide-width) / 2) / tan(var(--slides-angle)) )
       )
-    );
+    ); */
   
   
   /* de hoek van de list */
@@ -328,7 +340,7 @@ body {
   left:var(--slide-offset-touwtje);
   
   width:calc(100% - var(--slide-offset-touwtje) * 2);
-  height:75%;
+  height:50%;
   
   background-image:
     linear-gradient(
@@ -359,13 +371,16 @@ body {
 /* TRUSS */
 /*********/
 
-.truss-1, .truss-2 {
-    position: relative;
-    left: 20em;
-    width: 120em;
-    pointer-events: none;
+.truss-1 {
+    position: absolute;
+    left: calc( (100% - calc(var(--slide-width) * 7) ) / 2 );
+    width: calc(var(--slide-width) * 7);
+    /* pointer-events: none; */
     z-index: 1; 
-    top: clamp(-30em, -14vw,  -5em);
+    /* top: clamp(-30em, -14vw,  -5em); */
+    top:calc( 50% - var(--slide-width) * 1.8 + var(--slides-wiskunde) * cos( var(--slides-angle) ) );
+    /* top:calc( var(--slides-wiskunde) - 16% ); */
+    translate:0 -50%;
 
     .st0 {
         fill: var(--primary-color);
@@ -380,9 +395,16 @@ body {
     }
 }
 
-.truss-2 {
-    transform: translateY(-28em);
+@media (max-width: 600px) {
+  .truss-1 {
+    top:calc( 50% + 3em - var(--slide-width) * 1.8 + var(--slides-wiskunde) * cos( var(--slides-angle) ) );
+  }
 }
+
+
+/* .truss-2 {
+    transform: translateY(-28em);
+} */
 
 /* @media (max-width: 600px) {
     .scheve-scroller {

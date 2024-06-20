@@ -43,19 +43,19 @@
             <p>Bij De Man met de Hamer zijn we trots op ons team van getalenteerde en toegewijde medewerkers. Elk lid van ons team brengt unieke vaardigheden met zich mee, waardoor we samen de hoogste kwaliteit kunnen leveren.</p>
             <ul class="img-container">
                 <li>
-                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker3.jpg" alt="">
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker3.jpg" alt="Foto van Maarten Smids">
                     <p>Maarten Smids</p>
                 </li>
                 <li>
-                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker1.jpg" alt="">
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker1.jpg" alt="Foto van Berd Visscher">
                     <p>Berd Visscher</p>
                 </li>
                 <li>
-                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker2.jpg" alt="">
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/medewerker2.jpg" alt="Foto van Rienk Krikke">
                     <p>Rienk Krikke</p>
                 </li>
                 <li>
-                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/freelancer.jpg" alt="">
+                    <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/freelancer.jpg" alt="Foto van Dirk Broer">
                     <p>Dirk Broer</p>
                 </li>
             </ul>
@@ -67,21 +67,21 @@
             <ul>
                 <li>
                     <a href="https://jorisvanveldhoven.nl/" target="blank_">
-                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/joris-logo.png" alt="Joris van Veldhoven logo">
+                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/joris-logo.png" alt="Logo van Joris van Veldhoven">
                         <h3>Joris van Veldhoven</h3>
                     </a>
                     <p>Onze favoriete ontwerper</p>
                 </li>
                 <li>
                     <a href="https://www.instagram.com/dieuwekev/" target="blank_">
-                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/dieuweke.jpg" alt="afbeelding van Dieuweke van Reij">
+                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/dieuweke.jpg" alt="Afbeelding van Dieuweke van Reij">
                         <h3>Dieuweke van Reij</h3>
                     </a>
                     <p>Onze favoriete ontwerpster</p>
                 </li>
                 <li>
                     <a href="http://destaalfabriek.nl/" target="blank_">
-                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/de-staalfabriek-logo.png" alt="Logo van de staalfabriek">
+                        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/de-staalfabriek-logo.png" alt="Logo van De Staalfabriek">
                         <h3>De Staalfabriek</h3>
                     </a>
                     <p>Onze favoriete verhuurder</p>
@@ -467,7 +467,7 @@
                 mail: info@demanmetdehamer.nl <br>
             </p>
         </div>
-        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/werkplaats.jpg" alt="">
+        <img src="http://man-met-de-hamer.local/wp-content/uploads/2024/06/werkplaats.jpg" alt="Afbeelding van de ingang van De Man Met De Hamer">
     </section>
 
 </div>
